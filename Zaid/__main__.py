@@ -860,4 +860,3 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
-Use below buttons to explore my awesome features.
