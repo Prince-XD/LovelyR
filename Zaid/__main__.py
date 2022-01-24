@@ -452,7 +452,7 @@ def emiko_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Owner", url="t.me/TUSHAR204"),
-                    InlineKeyboardButton(text="Founder", url="t.me/Harshu_cutie"),
+                    InlineKeyboardButton(text="About Owner", url="t.me/ABOUTVEDMAT"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
@@ -509,8 +509,25 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Use below buttons to explore my awesome features.",
+                f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="Help",
+                                url="t.me/{}?start=ghelp_{}".format(
+                                    context.bot.username, module
+                                ),
+                            )
+                        ]
+                    ]
+                ),
+            )
+
+            return
+        update.effective_message.reply_text(
+            "Contact me in PM to get the list of possible commands.",
+            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
@@ -520,23 +537,9 @@ def get_help(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ", callback_data="masha_"
+                            text="ᴏᴘᴇɴ ʜᴇʀᴇ", callback_data="help_back"
                         ),
                     ],
-                ]
-            ),
-        )
-            return
-        update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="Help",
-                            url="t.me/{}?start=help".format(context.bot.username),
-                        )
-                    ]
                 ]
             ),
         )
