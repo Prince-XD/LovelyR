@@ -111,7 +111,11 @@ buttons = [
 
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+༆*LOVELY comes with many special features in it*༆
+꧁*CHECK ALL BUTTON BELOW TO EXPLORE EVERY COMMANDS OF LOVELY*꧂
+𖣘 *All commands can either be used with* `/` *or* `!`.
+𖣘 *If you facing any issue or find any bugs in any command then you can report it in @LOVELYAPPEAL* .
+"""
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @TUSHAR204 \
@@ -526,7 +530,7 @@ def get_help(update: Update, context: CallbackContext):
 
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Use below buttons to explore my awesome features in pm or group.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -856,3 +860,4 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
+Use below buttons to explore my awesome features.
