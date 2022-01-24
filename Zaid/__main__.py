@@ -81,32 +81,31 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hello {} !*
-😈 HI'm Zaid, An anime - Themed advanced telegram Group management with lots of features.
-───────────────────────
-× *Uptime:* `{}`
-× `{}` *users, across* `{}` *chats.*
-───────────────────────
-✪ Bot For help You Manage & Protect Your Groups.
-[➼](https://telegra.ph/file/be24bbabbe0ec30dff489.jpg) So What U Waiting For Add Me To Ur chat
-───────────────────────
+Hello {} I'm 𝕷𝖔𝖛𝖊𝖑𝖞 𝕽𝖔𝖇𝖔𝖙 ,
+
+༒︎ I ᴀᴍ ᴍᴜʟᴛɪ ᴛᴀʟᴇɴᴛᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ ғᴇᴀᴛᴜʀᴇ
+
+➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
+
+➪ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴍᴀsᴛᴇʀ ғᴏʀ ᴀɴʏ ǫᴜᴇʀʏ ᴀɴᴅ ᴀᴘᴘᴇᴀʟ ʜᴇʀᴇ.
+
+➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ғᴇᴀᴛᴜʀᴇs.
+
+➪ Pᴏᴡᴇʀᴇᴅ ʙʏ 𝕷𝖔𝖇𝖊 𝕱𝖆𝖎𝖑𝖚𝖗𝖊
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴇʟꜱᴇ ᴜ ɢᴀʏ🔥", url="t.me/Zaid2_Robot?startgroup=true"),
+            text="ᴋɪᴅɴᴀᴘᴘ ᴍᴇ ᴘʟᴢ", url="t.me/LOVELYR_OBOT?startgroup=true"),
     ],
-     [
-        InlineKeyboardButton(text="ʙᴀꜱɪᴄ ɢᴜɪᴅᴇ ", callback_data="emiko_"),
-     ],
      [  
-        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ ⚒️", url="https://t.me/Superior_Support"),
-        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ 📢", url="https://t.me/Superior_Bots"),
+        InlineKeyboardButton(text="ʙᴀꜱɪᴄ ɢᴜɪᴅᴇ", callback_data="emiko_"),
+        InlineKeyboardButton(text="ʜᴇʟᴘ/ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
     ], 
 
     [
-        InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
+        InlineKeyboardButton(text="ʟᴏᴠᴇʟʏ ᴏᴡɴᴇʀ", url="https://t.me/TUSHAR204"),
     ],
 ]
 
@@ -114,10 +113,8 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-EMI_IMG = "https://telegra.ph/file/be24bbabbe0ec30dff489.jpg"
-
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Timesisnotwaiting \
+ You can support the project by contacting @TUSHAR204 \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -853,3 +850,14 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
+Hello I'm 𝕷𝖔𝖛𝖊𝖑𝖞 𝕽𝖔𝖇𝖔𝖙 ,
+
+༒︎ I ᴀᴍ ᴍᴜʟᴛɪ ᴛᴀʟᴇɴᴛᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ ғᴇᴀᴛᴜʀᴇ
+
+➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
+
+➪ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴍᴀsᴛᴇʀ ғᴏʀ ᴀɴʏ ǫᴜᴇʀʏ ᴀɴᴅ ᴀᴘᴘᴇᴀʟ ʜᴇʀᴇ.
+
+➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ғᴇᴀᴛᴜʀᴇs.
+
+➪ Pᴏᴡᴇʀᴇᴅ ʙʏ 𝕷𝖔𝖇𝖊 𝕱𝖆𝖎𝖑𝖚𝖗𝖊
