@@ -509,20 +509,23 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
+                f"Use below buttons to explore my awesome features.",
                 reply_markup=InlineKeyboardMarkup(
+                [
                     [
-                        [
-                            InlineKeyboardButton(
-                                text="Help",
-                                url="t.me/{}?start=ghelp_{}".format(
-                                    context.bot.username, module
-                                ),
-                            )
-                        ]
-                    ]
-                ),
-            )
+                        InlineKeyboardButton(
+                            text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ",
+                            url="t.me/{}?start=help".format(context.bot.username),
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="ᴏᴘᴇɴ ʜᴇʀᴇ", callback_data="masha_"
+                        ),
+                    ],
+                ]
+            ),
+        )
             return
         update.effective_message.reply_text(
             "Contact me in PM to get the list of possible commands.",
