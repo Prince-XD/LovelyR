@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}
-I am an Anime themed group management bot with some fun extras :)
+I Lovely💔 group management/Music bot.
 
 I can do a variety of things, most common of em are:
 - Restrict users with ban permissions.
@@ -239,7 +239,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I am an Anime themed group management bot with some fun extras :)"
+            "I am Lovely💔 group management/Music bot.
             "\n\n I can do a variety of things, most common of em are:"
             "\n- Restrict users with ban permissions."
             "\n- Greet users with media + text and buttons, with proper formatting."
