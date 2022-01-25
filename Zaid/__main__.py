@@ -95,18 +95,18 @@ Hello {} I'm 𝕷𝖔𝖛𝖊𝖑𝖞 𝕽𝖔𝖇𝖔𝖙 ,
 """
 
 buttons = [
-    [
-        InlineKeyboardButton(
-            text="ᴋɪᴅɴᴀᴘᴘ ᴍᴇ ᴘʟᴢ", url="t.me/LOVELYR_OBOT?startgroup=true"),
-    ],
+     [
+        InlineKeyboardButton(text="Support", callback_data="emiko_support"),
+        InlineKeyboardButton(text="Basic", callback_data="emiko_"),
+        InlineKeyboardButton(text="Devs", callback_data="emiko_credit"),
+     ],
      [  
-        InlineKeyboardButton(text="ʙᴀꜱɪᴄ ɢᴜɪᴅᴇ", callback_data="emiko_"),
-        InlineKeyboardButton(text="ʜᴇʟᴘ/ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
-    ], 
-
-    [
-        InlineKeyboardButton(text="ʟᴏᴠᴇʟʏ ᴏᴡɴᴇʀ", url="https://t.me/TUSHAR204"),
-    ],
+        InlineKeyboardButton(
+            text="Inline", switch_inline_query_current_chat=""
+        ),
+        InlineKeyboardButton(text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="Kidnap", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
+     ], 
 ]
 
 
