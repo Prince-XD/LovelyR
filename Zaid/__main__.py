@@ -745,8 +745,7 @@ def get_settings(update: Update, context: CallbackContext):
                                 text="Open here", callback_data="stngs"
                                 ),
                         ],
-                                
-                        ]
+
                     ]
                 ),
             )
