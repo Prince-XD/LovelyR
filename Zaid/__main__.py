@@ -238,18 +238,19 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_text("I am an Anime themed group management bot with some fun extras :)
-            "\n\n I can do a variety of things, most common of em are:
-            "\n- Restrict users with ban permissions.
-            "\n- Greet users with media + text and buttons, with proper formatting.
-            "\n- Restrict users who flood your chat using my anti-flood module.
-            "\n- Warn users according to the options set and restrict em accordingly.
-            "\n- Save notes and filters with proper formatting and reply markup.
-            "\n- I can also Play Music in groups
-            "\n\n Theres even more! this is just the tip of the iceberg. Do note I need
-            "\n to be promoted with proper admin permissions to function properly. 
-            "\n Else I won't be able to function as said.
-            "\n\n Click on help to learn more and Join @Lovelyappeal for report bugs!".
+        update.effective_message.reply_text(
+            "I am an Anime themed group management bot with some fun extras :)"
+            "\n\n I can do a variety of things, most common of em are:"
+            "\n- Restrict users with ban permissions."
+            "\n- Greet users with media + text and buttons, with proper formatting."
+            "\n- Restrict users who flood your chat using my anti-flood module."
+            "\n- Warn users according to the options set and restrict em accordingly."
+            "\n- Save notes and filters with proper formatting and reply markup."
+            "\n- I can also Play Music in groups"
+            "\n\n Theres even more! this is just the tip of the iceberg. Do note I need"
+            "\n to be promoted with proper admin permissions to function properly." 
+            "\n Else I won't be able to function as said."
+            "\n\n Click on help to learn more and Join @Lovelyappeal for report bugs!",
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
