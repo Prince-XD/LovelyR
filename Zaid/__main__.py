@@ -741,9 +741,9 @@ def get_settings(update: Update, context: CallbackContext):
                         ),
                     ],
                     [
-                         InlineKeyboardButton(
-                            text="Go Back",
-                                callback_data="stngs_back({})".format(chat_id)
+                        InlineKeyboardButton(
+                           text="Go Back",
+                               callback_data="stngs_back({})".format(chat_id)
                         ),
                     ]
                 ]
