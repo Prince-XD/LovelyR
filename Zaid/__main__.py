@@ -251,8 +251,7 @@ def start(update: Update, context: CallbackContext):
             "\n to be promoted with proper admin permissions to function properly." 
             "\n Else I won't be able to function as said."
             "\n\n Click on help to learn more and Join @Lovelyappeal for report bugs!",
-            ),
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
 [
      [
