@@ -746,7 +746,6 @@ def get_settings(update: Update, context: CallbackContext):
                                 ),
                         ],
                                 
-                            )
                         ]
                     ]
                 ),
