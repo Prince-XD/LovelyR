@@ -81,38 +81,43 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hello {} I'm 𝕷𝖔𝖛𝖊𝖑𝖞 𝕽𝖔𝖇𝖔𝖙 ,
+Hi {}
+I am an Anime themed group management bot with some fun extras :)
 
-༒︎ I ᴀᴍ ᴍᴜʟᴛɪ ᴛᴀʟᴇɴᴛᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ᴏsᴍ ғᴇᴀᴛᴜʀᴇ
+I can do a variety of things, most common of em are:
+- Restrict users with ban permissions.
+- Greet users with media + text and buttons, with proper formatting.
+- Restrict users who flood your chat using my anti-flood module.
+- Warn users according to the options set and restrict em accordingly.
+- Save notes and filters with proper formatting and reply markup.
+- I can also Play Music in groups
 
-➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
+Theres even more! this is just the tip of the iceberg. Do note I need
+to be promoted with proper admin permissions to function properly. 
+Else I won't be able to function as said.
 
-➪ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴍᴀsᴛᴇʀ ғᴏʀ ᴀɴʏ ǫᴜᴇʀʏ ᴀɴᴅ ᴀᴘᴘᴇᴀʟ ʜᴇʀᴇ.
-
-➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ғᴇᴀᴛᴜʀᴇs.
-
-➪ Pᴏᴡᴇʀᴇᴅ ʙʏ 𝕷𝖔𝖇𝖊 𝕱𝖆𝖎𝖑𝖚𝖗𝖊
+Click on help to learn more and Join @Lovelyappeal for report bugs!
 """
 
 buttons = [
      [
-        InlineKeyboardButton(text="Support", callback_data="emiko_support"),
+        InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
         InlineKeyboardButton(text="Basic", callback_data="emiko_"),
-        InlineKeyboardButton(text="Devs", callback_data="emiko_credit"),
-     ],
-     [  
         InlineKeyboardButton(
             text="Inline", switch_inline_query_current_chat=""
         ),
+     ],
+     [  
+        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL),
         InlineKeyboardButton(text="Help", callback_data="help_back"),
-        InlineKeyboardButton(text="Kidnap", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
+        InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
 ]
 
 
 HELP_STRINGS = """
-༆*LOVELY comes with many special features in it*༆
-꧁*CHECK ALL BUTTON BELOW TO EXPLORE EVERY COMMANDS OF LOVELY*꧂
+༆*Lovely comes with many special features in it*༆
+꧁*check all button below to explore every commands of lovely*꧂
 𖣘 *All commands can either be used with* `/` *or* `!`.
 𖣘 *If you facing any issue or find any bugs in any command then you can report it in @LOVELYAPPEAL* .
 """
