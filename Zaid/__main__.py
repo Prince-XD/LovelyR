@@ -239,7 +239,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-       text="I am an Anime themed group management bot with some fun extras :)
+       text="๏ I am an Anime themed group management bot with some fun extras :)
             "\n\n I can do a variety of things, most common of em are:
             "\n- Restrict users with ban permissions.
             "\n- Greet users with media + text and buttons, with proper formatting.
