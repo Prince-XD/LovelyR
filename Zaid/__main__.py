@@ -396,8 +396,7 @@ def help_button(update, context):
 def emiko_about_callback(update, context):
     query = update.callback_query
     if query.data == "emiko_":
-        query.message.edit_text(
-            text="๏ I'm Lovely, a powerful group management bot built to help you manage your group easily."
+        query.message.edit_text("I'm Lovely, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
             "\n• I can greet users with customizable welcome messages and even set a group's rules."
             "\n• I have an advanced anti-flood system."
