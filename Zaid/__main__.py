@@ -108,7 +108,7 @@ buttons = [
         ),
      ],
      [  
-        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL),
+        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
         InlineKeyboardButton(text="Help", callback_data="help_back"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
