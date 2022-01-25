@@ -742,7 +742,7 @@ def get_settings(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Open here", callback_data="help_back"
+                            text="Open here", callback_data="stngs"
                         ),
                     ],
                 ]
