@@ -732,14 +732,15 @@ def get_settings(update: Update, context: CallbackContext):
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
+                [
                     [
-                        [
-                            InlineKeyboardButton(
-                                text="Settings",
+                        InlineKeyboardButton(
+                            text="Open in private chat",
                                 url="t.me/{}?start=stngs_{}".format(
-                                    context.bot.username, chat.id
-                                ),
-                        [
+                                    context.bot.username, chat.id)
+                        ),
+                    ],
+                    [
                         InlineKeyboardButton(
                             text="Open here", callback_data="help_back"
                         ),
