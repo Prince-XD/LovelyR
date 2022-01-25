@@ -239,12 +239,38 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
-                uptime
+            "I am an Anime themed group management bot with some fun extras :)
+
+I can do a variety of things, most common of em are:
+- Restrict users with ban permissions.
+- Greet users with media + text and buttons, with proper formatting.
+- Restrict users who flood your chat using my anti-flood module.
+- Warn users according to the options set and restrict em accordingly.
+- Save notes and filters with proper formatting and reply markup.
+- I can also Play Music in groups
+
+Theres even more! this is just the tip of the iceberg. Do note I need
+to be promoted with proper admin permissions to function properly. 
+Else I won't be able to function as said.
+
+Click on help to learn more and Join @Lovelyappeal for report bugs!
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/LOVELYAPPEAL")]]
+[
+     [
+        InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
+        InlineKeyboardButton(text="Basic", callback_data="emiko_"),
+        InlineKeyboardButton(
+            text="Inline", switch_inline_query_current_chat=""
+        ),
+     ],
+     [  
+        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
+        InlineKeyboardButton(text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
+     ], 
+]
             ),
         )
 
