@@ -351,7 +351,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="ʜᴏᴍᴇ", callback_data="emiko_back")]]
+                    [[InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")]]
                 ),
             )
 
@@ -741,10 +741,11 @@ def get_settings(update: Update, context: CallbackContext):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(
-                            text="Open here", callback_data="stngs"
-                        ),
-                    ],
+                         InlineKeyboardButton(
+                            text="Go Back",
+                                callback_data="stngs_back({})".format(chat_id),
+                        )
+                    ]
                 ]
             ),
         )
