@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}
-I Lovely💔 group management/Music bot.
+I'm Lovely💔 group management/Music bot.
 
 I can do a variety of things, most common of em are:
 - Restrict users with ban permissions.
@@ -239,7 +239,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I am Lovely💔 group management/Music bot."
+            "I'm Lovely💔 group management/Music bot."
             "\n\n I can do a variety of things, most common of em are:"
             "\n- Restrict users with ban permissions."
             "\n- Greet users with media + text and buttons, with proper formatting."
@@ -351,7 +351,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="help_back"), InlineKeyboardButton(text="ʜᴏᴍᴇ", callback_data="emiko_back")]]
+                    [[InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="ʜᴏᴍᴇ", callback_data="emiko_back")]]
                 ),
             )
 
@@ -562,13 +562,13 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ",
+                            text="Open in private chat",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ", callback_data="help_back"
+                            text="Open here", callback_data="help_back"
                         ),
                     ],
                 ]
@@ -739,6 +739,14 @@ def get_settings(update: Update, context: CallbackContext):
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
+                        ]
+
+                        [
+                            InlineKeyboardButton(
+                                text="Open here", callback_data="stngs",
+                                ),
+                        ]
+                                
                             )
                         ]
                     ]
