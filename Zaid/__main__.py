@@ -511,7 +511,7 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="source_"),
+                    InlineKeyboardButton(text="Done", callback_data="lovely_pro"),
                  ]
                 ]
             ),
@@ -551,7 +551,7 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_help"),
+                    InlineKeyboardButton(text="Done", callback_data="emiko_"),
                  ]
                 ]
             ),
@@ -598,7 +598,7 @@ def source_about_callback(update, context):
                     InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_help"),
+                    InlineKeyboardButton(text="Done", callback_data="emiko_"),
                  ]
                 ]
             ),
