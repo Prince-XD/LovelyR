@@ -499,7 +499,7 @@ def lovely_about_callback(update, context):
     if query.data == "lovely_":
         query.message.edit_text(
             text=f"Hi {}, This Lovely configuration tutorial.\n"
-            "\nFirst you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
+            "\n• First you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
