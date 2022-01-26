@@ -498,8 +498,8 @@ def lovely_about_callback(update, context):
     query = update.callback_query
     if query.data == "lovely_":
         query.message.edit_text(
-            text=f"Hi {}, This Lovely configuration tutorial.\n"
-            "\n• First you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
+            text="Hi {}, This Lovely configuration tutorial.\n"
+            "\nFirst you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -514,7 +514,7 @@ def lovely_about_callback(update, context):
         )
     elif query.data == "lovely_promote":
         query.message.edit_text(
-            text=f"Ok well done"
+            text="Ok well done"
                   "\n\nNow let me work correctly, you need to make me Admin of you Group!"
                   "\n\nTo do that, follow the step:)"
                   "\n\n•  Go to your group"
@@ -541,7 +541,7 @@ def lovely_about_callback(update, context):
 
     elif query.data == "lovely_helpx":
         query.message.edit_text(
-            text=f"Excellent!"
+            text="Excellent!"
                   "\nNow the Bot is ready to use!"
                   "\n\nUsing the /help command you have at your disposal a series of things that can be modified how you prefer, as required for your group.",
             parse_mode=ParseMode.MARKDOWN,
