@@ -934,7 +934,7 @@ def main():
     )
 
     source_callback_handler = CallbackQueryHandler(
-        Source_about_callback, pattern=r"source_", run_async=True
+        source_about_callback, pattern=r"source_", run_async=True
     )
 
     donate_handler = CommandHandler("donate", donate, run_async=True)
