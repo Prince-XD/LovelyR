@@ -415,6 +415,7 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Commands", callback_data="help_back"),
+                    InlineKeyboardButton(text="Configuration", callback_data="emiko,tut"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
@@ -487,6 +488,64 @@ def emiko_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                 ]
+                ]
+            ),
+        )
+
+   elif query.data == "emiko_tut":
+        query.message.edit_text(
+            text=f"Hi {}, This Lovely configuration tutorial.\n"
+            "\nFirst you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Done", callback_data="emiko_promote"),
+                 ]
+                ]
+            ),
+        )
+
+   elif query.data == "emiko_promote":
+        query.message.edit_text(
+            text=f"Ok well done"
+             \n\n "Now let me work correctly, you need to make me Admin of you Group!"
+             \n\n "To do that, follow the step:)"
+             \n\n "•  Go to your group"
+               \n "•  Press the Group's name"
+               \n "•  Press Modify"
+               \n "•  Press on Administrator"
+               \n "•  Press Add Administrator"
+               \n "•  Press the Magnifying Glass"
+               \n "•  Search @LOVELYR_OBOT"
+               \n "• Confirm",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButtonhttps://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Done", callback_data="emiko_helpx"),
+                 ]
+                ]
+            ),
+        )
+
+   elif query.data == "emiko_helpx":
+        query.message.edit_text(
+            text=f"Excellent!"
+               \n "Now the Bot is ready to use!"
+              \n\n "Using the /help command you have at your disposal a series of things that can be modified how you prefer, as required for your group.",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Continue", callback_data="emiko_commands"),
                  ]
                 ]
             ),
