@@ -512,6 +512,20 @@ def lovely_about_callback(update, context):
                 ]
             ),
         )
+    elif query.data == "lovely_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+        )
     elif query.data == "lovely_promote":
         query.message.edit_text(
             text="Ok well done"
