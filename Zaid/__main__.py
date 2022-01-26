@@ -307,7 +307,6 @@ def error_handler(update, context):
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
     error = context.error
-    try:
     except Unauthorized:
         print("no nono1")
         print(error)
