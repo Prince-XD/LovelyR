@@ -112,6 +112,9 @@ buttons = [
         InlineKeyboardButton(text="Help", callback_data="help_back"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
+     [
+       InlineKeyboardButton(text="Music Bot", callback_data="lovely_"),
+     ],
 ]
 
 
@@ -418,7 +421,7 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Commands", callback_data="help_back"),
-                    InlineKeyboardButton(text="Configuration", callback_data="lovely_"),
+                    InlineKeyboardButton(text="Configuration", callback_data="lovelyx_"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
@@ -497,7 +500,7 @@ def emiko_about_callback(update, context):
         )
 
 
-def lovely_about_callback(update, context):
+def lovelyx_about_callback(update, context):
     query = update.callback_query
     if query.data == "lovely_":
         query.message.edit_text(
@@ -511,7 +514,7 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_pro"),
+                    InlineKeyboardButton(text="Done", callback_data="lovelyx_pro"),
                  ]
                 ]
             ),
@@ -530,7 +533,7 @@ def lovely_about_callback(update, context):
                 timeout=60,
                 disable_web_page_preview=False,
         )
-    elif query.data == "lovely_pro":
+    elif query.data == "lovelyx_pro":
         query.message.edit_text(
             text="Ok well done"
                   "\n\nNow let me work correctly, you need to make me Admin of you Group!"
@@ -558,7 +561,7 @@ def lovely_about_callback(update, context):
         )
 
 
-    elif query.data == "lovely_help":
+    elif query.data == "lovelyx_help":
         query.message.edit_text(
             text="Excellent!"
                   "\nNow the Bot is ready to use!"
@@ -929,8 +932,8 @@ def main():
         emiko_about_callback, pattern=r"emiko_", run_async=True
     )
 
-    lovely_callback_handler = CallbackQueryHandler(
-        lovely_about_callback, pattern=r"lovely_", run_async=True
+    lovelyx_callback_handler = CallbackQueryHandler(
+        lovelyx_about_callback, pattern=r"lovelyx_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
@@ -946,7 +949,7 @@ def main():
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(about_callback_handler)
-    dispatcher.add_handler(lovely_callback_handler)
+    dispatcher.add_handler(lovelyx_callback_handler)
     dispatcher.add_handler(source_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
