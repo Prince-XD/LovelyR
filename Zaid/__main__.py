@@ -507,7 +507,7 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_promote"),
+                    InlineKeyboardButton(text="Done", callback_data="lovelyp_"),
                  ]
                 ]
             ),
@@ -526,7 +526,9 @@ def lovely_about_callback(update, context):
                 timeout=60,
                 disable_web_page_preview=False,
         )
-    elif query.data == "lovely_promote":
+def lovelyp_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "lovelyp_":
         query.message.edit_text(
             text="Ok well done"
                   "\n\nNow let me work correctly, you need to make me Admin of you Group!"
@@ -546,14 +548,16 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_helpx"),
+                    InlineKeyboardButton(text="Done", callback_data="lovelyh_"),
                  ]
                 ]
             ),
         )
 
 
-    elif query.data == "lovely_helpx":
+def lovelyh_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "lovelyh_":
         query.message.edit_text(
             text="Excellent!"
                   "\nNow the Bot is ready to use!"
@@ -928,6 +932,14 @@ def main():
         Source_about_callback, pattern=r"source_", run_async=True
     )
 
+    lovelyh_callback_handler = CallbackQueryHandler(
+        lovely_about_callback, pattern=r"lovelyh_", run_async=True
+    )
+
+    lovelyp_callback_handler = CallbackQueryHandler(
+        lovely_about_callback, pattern=r"lovelyp_", run_async=True
+    )
+
     donate_handler = CommandHandler("donate", donate, run_async=True)
     migrate_handler = MessageHandler(
         Filters.status_update.migrate, migrate_chats, run_async=True
@@ -938,6 +950,8 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(lovely_callback_handler)
+    dispatcher.add_handler(lovelyh_callback_handler)
+    dispatcher.add_handler(lovelyp_callback_handler)
     dispatcher.add_handler(source_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
