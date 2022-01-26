@@ -515,16 +515,16 @@ def lovely_about_callback(update, context):
    elif query.data == "lovely_promote":
         query.message.edit_text(
             text=f"Ok well done"
-             \n\n "Now let me work correctly, you need to make me Admin of you Group!"
-             \n\n "To do that, follow the step:)"
-             \n\n "•  Go to your group"
-               \n "•  Press the Group's name"
-               \n "•  Press Modify"
-               \n "•  Press on Administrator"
-               \n "•  Press Add Administrator"
-               \n "•  Press the Magnifying Glass"
-               \n "•  Search @LOVELYR_OBOT"
-               \n "• Confirm",
+                  "\n\nNow let me work correctly, you need to make me Admin of you Group!"
+                  "\n\nTo do that, follow the step:)"
+                  "\n\n•  Go to your group"
+                  "\n•  Press the Group's name"
+                  "\n•  Press Modify"
+                  "\n•  Press on Administrator"
+                  "\n•  Press Add Administrator"
+                  "\n•  Press the Magnifying Glass"
+                  "\n•  Search @LOVELYR_OBOT"
+                  "\n• Confirm",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -542,8 +542,8 @@ def lovely_about_callback(update, context):
    elif query.data == "lovely_helpx":
         query.message.edit_text(
             text=f"Excellent!"
-               \n "Now the Bot is ready to use!"
-              \n\n "Using the /help command you have at your disposal a series of things that can be modified how you prefer, as required for your group.",
+                  "\nNow the Bot is ready to use!"
+                  "\n\nUsing the /help command you have at your disposal a series of things that can be modified how you prefer, as required for your group.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
