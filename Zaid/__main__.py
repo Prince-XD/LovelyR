@@ -512,7 +512,7 @@ def lovely_about_callback(update, context):
                 ]
             ),
         )
-   elif query.data == "lovely_promote":
+    elif query.data == "emiko_credit":
         query.message.edit_text(
             text=f"Ok well done"
                   "\n\nNow let me work correctly, you need to make me Admin of you Group!"
