@@ -576,7 +576,7 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="text="Ok well done"
+            text="Ok well done"
                  "\n\nNow let me work correctly, you need to make me Admin of you Group!"
                  "\n\nTo do that, follow the step:)"
                  "\n\n•  Go to your group"
