@@ -522,7 +522,7 @@ def lovelyx_about_callback(update, context):
                 ]
             ),
         )
-    elif query.data == "lovely_back":
+    elif query.data == "lovelyx_back":
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
