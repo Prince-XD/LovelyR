@@ -505,7 +505,7 @@ def emiko_about_callback(update, context):
 
 def lovelyx_about_callback(update, context):
     query = update.callback_query
-    if query.data == "lovely_":
+    if query.data == "lovelyx_":
         query.message.edit_text(
             text="Hi This Lovely configuration tutorial.\n"
             "\nFirst you have to add Lovely to your group! For adding me, press the under button **Add me to Group** and select your group, after that press **Done** to continue the tutorial.",
