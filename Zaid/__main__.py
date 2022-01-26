@@ -269,6 +269,9 @@ def start(update: Update, context: CallbackContext):
         InlineKeyboardButton(text="Help", callback_data="help_back"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
+     [
+       InlineKeyboardButton(text="Music Bot", callback_data="shikhar_"),
+     ],
 ]
             ),
         )
