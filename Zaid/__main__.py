@@ -351,7 +351,8 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")]]
+                    [[InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")]]
+                    [[InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]]
                 ),
             )
 
@@ -498,7 +499,7 @@ def lovely_about_callback(update, context):
     query = update.callback_query
     if query.data == "lovely_":
         query.message.edit_text(
-            text="Hi {}, This Lovely configuration tutorial.\n"
+            text="Hi This Lovely configuration tutorial.\n"
             "\nFirst you have to add Lovely to your group! For adding me, press the under button **Add me to Group** and select your group, after that press **Done** to continue the tutorial.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
