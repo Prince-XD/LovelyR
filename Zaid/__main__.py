@@ -512,8 +512,6 @@ def lovely_about_callback(update, context):
                 ]
             ),
         )
-
-
    elif query.data == "lovely_promote":
         query.message.edit_text(
             text=f"Ok well done"
