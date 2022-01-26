@@ -529,7 +529,7 @@ def lovely_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButtonhttps://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
+                    InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
                  ],
                  [
                     InlineKeyboardButton(text="Done", callback_data="lovely_helpx"),
