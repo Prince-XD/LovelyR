@@ -494,7 +494,9 @@ def emiko_about_callback(update, context):
         )
 
 
-   elif query.data == "emiko_tut":
+def lovely_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "lovely_":
         query.message.edit_text(
             text=f"Hi {}, This Lovely configuration tutorial.\n"
             "\nFirst you have to add Lovely to your group! For adding me, press the under button "Add me to Group and select your group, after that press "Done" to continue the tutorial.",
@@ -505,14 +507,14 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="emiko_promote"),
+                    InlineKeyboardButton(text="Done", callback_data="lovely_promote"),
                  ]
                 ]
             ),
         )
 
 
-   elif query.data == "emiko_promote":
+   elif query.data == "lovely_promote":
         query.message.edit_text(
             text=f"Ok well done"
              \n\n "Now let me work correctly, you need to make me Admin of you Group!"
@@ -532,14 +534,14 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButtonhttps://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="emiko_helpx"),
+                    InlineKeyboardButton(text="Done", callback_data="lovely_helpx"),
                  ]
                 ]
             ),
         )
 
 
-   elif query.data == "emiko_helpx":
+   elif query.data == "lovely_helpx":
         query.message.edit_text(
             text=f"Excellent!"
                \n "Now the Bot is ready to use!"
@@ -548,7 +550,7 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Continue", callback_data="emiko_commands"),
+                    InlineKeyboardButton(text="Continue", callback_data="lovely_commands"),
                  ]
                 ]
             ),
@@ -906,6 +908,10 @@ def main():
         emiko_about_callback, pattern=r"emiko_", run_async=True
     )
 
+    lovely_callback_handler = CallbackQueryHandler(
+        lovely_about_callback, pattern=r"lovely_", run_async=True
+    )
+
     source_callback_handler = CallbackQueryHandler(
         Source_about_callback, pattern=r"source_", run_async=True
     )
@@ -919,6 +925,7 @@ def main():
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(about_callback_handler)
+    dispatcher.add_handler(lovely_callback_handler)
     dispatcher.add_handler(source_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
