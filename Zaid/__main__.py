@@ -510,7 +510,7 @@ def lovely_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovely_pro"),
+                    InlineKeyboardButton(text="Done", callback_data="source_"),
                  ]
                 ]
             ),
@@ -576,23 +576,26 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="text="Ok well done"
+                 "\n\nNow let me work correctly, you need to make me Admin of you Group!"
+                 "\n\nTo do that, follow the step:)"
+                 "\n\n•  Go to your group"
+                 "\n•  Press the Group's name"
+                 "\n•  Press Modify"
+                 "\n•  Press on Administrator"
+                 "\n•  Press Add Administrator"
+                 "\n•  Press the Magnifying Glass"
+                 "\n•  Search @LOVELYR_OBOT"
+                 "\n• Confirm",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_")
+                    InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Done", callback_data="lovely_help"),
                  ]
                 ]
             ),
