@@ -423,9 +423,12 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="Advanced Commands", callback_data="emiko_support"),
                  ],      
                  [
-                    InlineKeyboardButton(text="All Commands", callback_data="help_back"),
-                    InlineKeyboardButton(text="Developers", callback_data="emiko_admin"),
+                    InlineKeyboardButton(text="Fun and extra", callback_data="emiko_credit"),
+                    InlineKeyboardButton(text="Go inline", switch_inline_query_current_chat=""),
                  ],
+                 [
+                    InlineKeyboardButton(text="All Commands", callback_data="help_back"),
+                 ]
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
                  ]
@@ -526,19 +529,47 @@ def emiko_about_callback(update, context):
 
     elif query.data == "emiko_credit":
         query.message.edit_text(
-            text=f"Creadits \n"
-            "\nHere Developers Making And Give Inspiration For Made This Bot",
+            text="Fun And extra commands"
+                 "\n\n❂ /logo <text/name> - Create a logo with random view."
+                 "\n❂ /wlogo <text/name> - Create a logo with wide view only."
+                 "\n\nImage Editor :"
+                 "\n❂  /edit <reply photo> - to edit image."
+                 "\n\nstickers tools"
+                 "\n❂ /stickerid: reply to a sticker to me to tell you its file ID."
+                 "\n❂ /getsticker: reply to a sticker to me to upload its raw PNG file."
+                 "\n❂ /kang: reply to a sticker to add it to your pack."
+                 "\n❂ /delsticker: Reply to your anime exist sticker to your pack to delete it."
+                 "\n❂ /stickers: Find stickers for given term on combot sticker catalogue"
+                 "\n❂ /tiny: To make small sticker"
+                 "\n❂ /kamuii <1-8> : To deepefying stiker"
+                 "\n❂ /mmf <reply with text>: To draw a text for sticker or pohots"
+                 "\n\n❂ /runs: reply a random string from an array of replies"
+                 "\n❂ /slap: slap a user, or get slapped if not a reply"
+                 "\n❂ /shrug: get shrug XD"
+                 "\n❂ /table: get flip/unflip :v"
+                 "\n❂ /decide: Randomly answers yes/no/maybe"
+                 "\n❂ /toss: Tosses A coin"
+                 "\n❂ /bluetext: check urself :V"
+                 "\n❂ /roll: Roll a dice"
+                 "\n❂ /rlg: Join ears,nose,mouth and create an emo ;-;"
+                 "\n❂ /shout <keyword>: write anything you want to give loud shout"
+                 "\n❂ /weebify <text>: returns a weebified text"
+                 "\n❂ /sanitize: always use this before /pat or any contact"
+                 "\n❂ /pat: pats a user, or get patted"
+                 "\n❂ /8ball: predicts using 8ball method"
+                 "\n\n- Animation"
+                 "\n❂ /love"
+                 "\n❂ /hack"
+                 "\n❂ /bombs"
+                 "\n\n- Shippering"
+                 "\n❂ /couples - get couples of today"
+                 "\n\nMusic and video commands"
+                 "\n❂ /video or /vsong (query): download video from youtube"
+                 "\n❂ /music or /song (query): download song from yt servers. (API BASED)"
+                 "\n❂ /lyrics (song name) : This plugin searches for song lyrics with song name.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Tushar", url="t.me/TUSHAR204"),
-                    InlineKeyboardButton(text="Lucifer", url="t.me/DetectivedeX"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                 ]
-                ]
+                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
             ),
         )
 
