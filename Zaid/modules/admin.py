@@ -5,7 +5,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from Zaid import DRAGONS, dispatcher
+from Zaid import dispatcher
 from Zaid.modules.disable import DisableAbleCommandHandler
 from Zaid.modules.helper_funcs.chat_status import (
     bot_admin,
