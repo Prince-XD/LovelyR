@@ -102,14 +102,12 @@ Click on help to learn more and Join @Lovelyappeal for report bugs!
 buttons = [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="Basic", callback_data="emiko_"),
-        InlineKeyboardButton(
-            text="Inline", switch_inline_query_current_chat=""
-        ),
+        InlineKeyboardButton(text="About", callback_data="lovelyx_"),
+        InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),         
      ],
      [  
         InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
-        InlineKeyboardButton(text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="Help", callback_data="emiko_"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
      [
@@ -259,14 +257,12 @@ def start(update: Update, context: CallbackContext):
 [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="Basic", callback_data="emiko_"),
-        InlineKeyboardButton(
-            text="Inline", switch_inline_query_current_chat=""
-        ),
+        InlineKeyboardButton(text="About", callback_data="lovelyx_"),
+        InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),
      ],
      [  
         InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
-        InlineKeyboardButton(text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="Help", callback_data="emiko_"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
      [
@@ -580,9 +576,9 @@ def lovelyx_about_callback(update, context):
     query = update.callback_query
     if query.data == "lovelyx_":
         query.message.edit_text(
-            text="Hi This Lovely configuration tutorial.\n"
-            "\nFirst you have to add Lovely to your group! For adding me, press the under button **Add me to Group** and select your group, after that press **Done** to continue the tutorial.",
-            parse_mode=ParseMode.MARKDOWN,
+            text="Hi I'm Lovely, one of the fastest and most features for your groups"
+                 "\n\nYou can also Play Music groups by using me!",
+        parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -590,7 +586,7 @@ def lovelyx_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Done", callback_data="lovelyx_pro"),
+                    InlineKeyboardButton(text="Back", callback_data="emiko_back"),
                  ]
                 ]
             ),
@@ -978,7 +974,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**I love you❤️**
+                f"""**Jai hind 🇮🇳**
 
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
