@@ -419,12 +419,12 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", callback_data="emiko_support"),
-                    InlineKeyboardButton(text="Developers", callback_data="emiko_credit"),
+                    InlineKeyboardButton(text="Basic Commands", callback_data="emiko_admin"),
+                    InlineKeyboardButton(text="Advanced Commands", callback_data="emiko_support"),
                  ],      
                  [
-                    InlineKeyboardButton(text="Commands", callback_data="help_back"),
-                    InlineKeyboardButton(text="Basic Commands", callback_data="emiko_admin"),
+                    InlineKeyboardButton(text="All Commands", callback_data="help_back"),
+                    InlineKeyboardButton(text="Developers", callback_data="emiko_admin"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
@@ -494,23 +494,35 @@ def emiko_about_callback(update, context):
 
     elif query.data == "emiko_support":
         query.message.edit_text(
-            text="*support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on Lovely.",
+            text="\n❂ /admins: list of admins in the chat"
+                 "\n❂ /pinned: to get the current pinned message"
+                 "\n❂ /setgpic: reply to an image to set as group photo"
+                 "\n❂ /setdesc: Set group description"
+                 "\n❂ /setsticker: Set group sticker"
+                 "\n\n❂ /animequotes: for anime quotes randomly as photos."
+                 "\n❂ /quote: send quotes randomly as text"
+                 "\n\n❂ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)"
+                 "\n❂ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days."
+                 "\n❂ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days."
+                 "\n❂ /zombies: searches deleted accounts"
+                 "\n❂ /zombies clean: removes deleted accounts from the group."
+                 "\n❂ /snipe <chatid> <string>: Make me send a message to a specific chat."
+                 "\n\n❂ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat."
+                 "\n❂ /welcomemutehelp: gives information about welcome mutes."
+                 "\n❂ /cleanservice <on/off: deletes telegrams welcome/left service messages."
+                 "\n\n**Example:**"
+                 "\nuser joined chat, user left chat."
+                 "\n\n**Welcome markdown:**"
+                 "\n❂ /welcomehelp: view more formatting information for custom welcome/goodbye messages."
+                 "\n\n❂ /logo <text/name> - Create a logo with random view."
+                 "\n❂ /wlogo <text/name> - Create a logo with wide view only."
+                 "\n\n**Image Editor :**"
+                 "\n❂  /edit <reply photo> - to edit image.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/ABOUTVEDMAT"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                 
-                 ]
-                ]
+                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
             ),
         )
-
 
     elif query.data == "emiko_credit":
         query.message.edit_text(
