@@ -21,8 +21,6 @@ from Zaid import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
-    DRAGONS,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -80,14 +78,6 @@ def ban(update: Update, context: CallbackContext) -> str:
             message.reply_text("Trying to put me against a King huh?")
         elif user_id in DEV_USERS:
             message.reply_text("I can't act against our Prince.")
-        elif user_id in DRAGONS:
-            message.reply_text(
-                "Fighting this Emperor here will put user lives at risk."
-            )
-        elif user_id in DEMONS:
-            message.reply_text(
-                "Bring an order from Captain to fight a Assasin servant."
-            )
         elif user_id in TIGERS:
             message.reply_text(
                 "Bring an order from Soldier to fight a Lancer servant."
