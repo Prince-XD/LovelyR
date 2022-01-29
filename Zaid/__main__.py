@@ -522,6 +522,7 @@ def emiko_about_callback(update, context):
                  "\n\n**Image Editor :**"
                  "\n❂  /edit <reply photo> - to edit image.",
             parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
             ),
@@ -568,6 +569,7 @@ def emiko_about_callback(update, context):
                  "\n❂ /music or /song (query): download song from yt servers. (API BASED)"
                  "\n❂ /lyrics (song name) : This plugin searches for song lyrics with song name.",
             parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
             ),
