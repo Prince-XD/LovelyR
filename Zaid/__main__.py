@@ -424,7 +424,7 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Commands", callback_data="help_back"),
-                    InlineKeyboardButton(text="Configuration", callback_data="lovelyx_pro"),
+                    InlineKeyboardButton(text="Configuration", callback_data="source_"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
