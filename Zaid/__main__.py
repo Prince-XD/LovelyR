@@ -424,7 +424,9 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Fun and extra", callback_data="emiko_credit"),
-                    InlineKeyboardButton(text="Go inline", switch_inline_query_current_chat=""),
+                    InlineKeyboardButton(
+                         text="Inline", switch_inline_query_current_chat=""
+                 ),
                  ],
                  [
                     InlineKeyboardButton(text="All Commands", callback_data="help_back"),
