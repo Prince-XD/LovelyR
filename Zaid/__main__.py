@@ -424,7 +424,7 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Commands", callback_data="help_back"),
-                    InlineKeyboardButton(text="Configuration", callback_data="source_"),
+                    InlineKeyboardButton(text="Basic Commands", callback_data="emiko_admin"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
@@ -449,14 +449,42 @@ def emiko_about_callback(update, context):
 
     elif query.data == "emiko_admin":
         query.message.edit_text(
-            text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, Zaid now ready to manage your group."
-            "\n\n*Admin Tools*"
-            "\nBasic Admin tools help you to protect and powerup your group."
-            "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
-            "\n\n*Greetings*"
-            "\nLets set a welcome message to welcome new users coming to your group."
-            "\nsend `/setwelcome [message]` to set a welcome message!",
+            text="❂ /ban <userhandle>: bans a user. (via handle, or reply)"
+                 "\n ❂ /unban <userhandle>: unbans a user. (via handle, or reply)"
+                 "\n❂ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user."
+                 "\n❂ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user."
+                 "\n\n❂ /promote: promotes the user replied to"
+                 "\n❂ /fullpromote: promotes the user replied to with full rights"
+                 "\n❂ /demote: demotes the user replied to"
+                 "\n❂ /title <title here>: sets a custom title for an admin that the bot promoted"
+                 "\n❂ /admincache: refresh the admins list"
+                 "\n❂ /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users"
+                 "\n❂ /unpin: unpins the currently pinned message"
+                 "\n❂ /invitelink: gets invitelink"
+                 "\n❂ /purge: deletes all messages between this and the replied to message."
+                 "\n\n**Rules:**"
+                 "\n❂ /rules: get the rules for this chat."
+                 "\n❂ /setrules <your rules here>: set the rules for this chat."
+                 "\n❂ /clearrules: clear the rules for this chat."
+                 "\n❂ /filters: List all active filters saved in the chat."
+                 "\n\n**Admin only:**"
+                 "\n❂ /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'is mentioned."
+                 "\n\n❂ /stop <filter keyword>: Stop that filter."
+                 "\n\n**Note:** Filters also support markdown formatters like: {first}, {last} etc.. and buttons."
+                 "\nCheck /markdownhelp to know more!"
+                 "\n\nOverall Information about you:"
+                 "\n❂ /info: get information about a user."
+                 "\n\njson Detailed info:"
+                 "\n❂ /json: Get Detailed info about any message."
+                 "\n\n**Welcome/Goodbye:**"
+                 "\n❂ /welcome <on/off>: enable/disable welcome messages."
+                 "\n❂ /welcome: shows current welcome settings."
+                 "\n❂ /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!"
+                 "\n❂ /goodbye: same usage and args as /welcome."
+                 "\n❂ /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media."
+                 "\n❂ /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media."
+                 "\n❂ /resetwelcome: reset to the default welcome message."
+                 "\n❂ /resetgoodbye: reset to the default goodbye",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
