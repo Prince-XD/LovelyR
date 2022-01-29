@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}
-I'm Lovely💔 group management/Music bot.
+I'm Lovely group management/Music bot.
 
 I can do a variety of things, most common of em are:
 - Restrict users with ban permissions.
@@ -242,7 +242,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm Lovely💔 group management/Music bot."
+            "I'm Lovely group management/Music bot."
             "\n\n I can do a variety of things, most common of em are:"
             "\n- Restrict users with ban permissions."
             "\n- Greet users with media + text and buttons, with proper formatting."
@@ -424,13 +424,11 @@ def emiko_about_callback(update, context):
                  ],      
                  [
                     InlineKeyboardButton(text="Fun and extra", callback_data="emiko_credit"),
-                    InlineKeyboardButton(
-                         text="Inline", switch_inline_query_current_chat=""
-                 ),
+                    InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
                  ],
                  [
                     InlineKeyboardButton(text="All Commands", callback_data="help_back"),
-                 ]
+                 ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
                  ]
