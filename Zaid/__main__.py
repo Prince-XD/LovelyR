@@ -586,7 +586,7 @@ def lovelyx_about_callback(update, context):
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="emiko_back"),
+                    InlineKeyboardButton(text="Next", callback_data="emiko_back"),
                  ]
                 ]
             ),
@@ -607,44 +607,37 @@ def lovelyx_about_callback(update, context):
         )
     elif query.data == "lovelyx_pro":
         query.message.edit_text(
-            text="Ok well done"
-                  "\n\nNow let me work correctly, you need to make me Admin of you Group!"
-                  "\n\nTo do that, follow the step:)"
-                  "\n\n•  Go to your group"
-                  "\n•  Press the Group's name"
-                  "\n•  Press Modify"
-                  "\n•  Press on Administrator"
-                  "\n•  Press Add Administrator"
-                  "\n•  Press the Magnifying Glass"
-                  "\n•  Search @LOVELYR_OBOT"
-                  "\n• Confirm",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
+            text="""<b>Hey, Welcome to Tiana configuration Tutorial
+Before we go, I need admin permissions in this chat to work properly
+1) Click Manage Group
+2) Go to Administrators and add</b> @LOVELYR_OBOT <b>as Admin
+3) Giving full permissions make Lovely fully useful</b>""",
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Done", callback_data="emiko_"),
-                 ]
-                ]
+              [[InlineKeyboardButton(text="⬅️", callback_data="lovelyx_"),
+                InlineKeyboardButton(text="➡️", callback_data="lovelyx_help")],               
+              ]
             ),
         )
 
-
     elif query.data == "lovelyx_help":
         query.message.edit_text(
-            text="Excellent!"
-                  "\nNow the Bot is ready to use!"
-                  "\n\nUsing the /help command you have at your disposal a series of things that can be modified how you prefer, as required for your group.",
+            text="""*Let's make your group bit effective now
+Congragulations, Lovely now ready to manage your group
+Here are some essentialt to try on
+✗ Admin tools
+Basic Admin tools help you to protect and powerup your group
+You can ban members, Kick members, Promote someone as admin through commands of bot
+✗ Welcomes
+Lets set a welcome message to welcome new users coming to your group
+send* /setwelcome *[message] to set a welcome message
+Also you can Stop entering robots or spammers to your chat by setting welcome captcha 
+Refer Help menu to see everything in detail*""",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Continue", callback_data="lovely_commands"),
-                 ]
+              [
+                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_pro"),
+                 InlineKeyboardButton(text="➡️", callback_data="emiko_back")]
                 ]
             ),
         )
@@ -1057,3 +1050,15 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
+text="""<b>Hey, Welcome to Tiana configuration Tutorial
+Before we go, I need admin permissions in this chat to work properly
+1) Click Manage Group
+2) Go to Administrators and add</b> @Tiana_Prince_Bot <b>as Admin
+3) Giving full permissions make Tiana fully useful</b>""",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+              [[InlineKeyboardButton(text="⬅️", callback_data="tiana_help"),
+                InlineKeyboardButton(text="➡️", callback_data="tiana_helpb")],               
+              ]
+            ),
+        )
