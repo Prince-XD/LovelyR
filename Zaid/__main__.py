@@ -1050,15 +1050,3 @@ if __name__ == "__main__":
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
-text="""<b>Hey, Welcome to Tiana configuration Tutorial
-Before we go, I need admin permissions in this chat to work properly
-1) Click Manage Group
-2) Go to Administrators and add</b> @Tiana_Prince_Bot <b>as Admin
-3) Giving full permissions make Tiana fully useful</b>""",
-            parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="⬅️", callback_data="tiana_help"),
-                InlineKeyboardButton(text="➡️", callback_data="tiana_helpb")],               
-              ]
-            ),
-        )
