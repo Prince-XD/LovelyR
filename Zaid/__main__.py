@@ -607,7 +607,7 @@ def lovelyx_about_callback(update, context):
         )
     elif query.data == "lovelyx_pro":
         query.message.edit_text(
-            text="""<b>Hey, Welcome to Tiana configuration Tutorial
+            text="""<b>Hey, Welcome to Lovely configuration Tutorial
 Before we go, I need admin permissions in this chat to work properly
 1) Click Manage Group
 2) Go to Administrators and add</b> @LOVELYR_OBOT <b>as Admin
@@ -637,11 +637,84 @@ Refer Help menu to see everything in detail*""",
             reply_markup=InlineKeyboardMarkup(
               [
                 [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_pro"),
-                 InlineKeyboardButton(text="➡️", callback_data="emiko_back")]
+                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpc")]
                 ]
             ),
         )
 
+    elif query.data == "lovelyx_helpc":
+        query.message.edit_text(
+            text="""✗ *Filters*
+Filters can be used as automated replies/ban/delete when someone use a word or sentence
+For Example if I filter word 'hello' and set reply as 'hi'
+Bot will reply as 'hi' when someone say 'hello'
+You can add filters by sending /filter [filter name]
+✗ *AI Chatbot*
+Want someone to chat in group?
+Tiana has an intelligent chatbot with multilang support
+Let's try it,
+Send /chatbot on and reply to any of my messages to see the magic""",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+              [
+                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpb"),
+                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpd")]
+                ]
+            ),
+        )
+    elif query.data == "lovelyx_helpd":
+        query.message.edit_text(
+            text="""✗ *Setting up Notes*
+You can save message/media/audio or anything as notes
+to get a note simply use # at the beginning of a word
+See the image..
+You can also set buttons for notes and filters (refer help menu)
+✗ *Setting up NightMode*
+You can set up NightMode Using /nightmode on/off command.
+Note- Night Mode chats get Automatically closed at 12pm(IST)
+and Automatically openned at 6am(IST) To Prevent Night Spams.""",
+         parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+              [
+                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpc"),
+                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpe")]
+                ]
+            ),
+        )
+    elif query.data == "lovelyx_term":
+        query.message.edit_text(
+            text="""✗ *Terms and Conditions:*
+- Only your first name, last name (if any) and username (if any) is stored for a convenient communication!
+- No group ID or it's messages are stored, we respect everyone's privacy.
+- Messages between Bot and you is only infront of your eyes and there is no backuse of it.
+- Watch your group, if someone is spamming your group, you can use the report feature of your Telegram Client.
+- Do not spam commands, buttons, or anything in bot PM.
+*NOTE:* Terms and Conditions might change anytime
+*Updates Channel:* @LOVELY\_ROBOTS
+*Support Chat:* @PrincexSupport""",
+          parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[
+                InlineKeyboardButton(text="🔙 Back", callback_data="about_")]]
+            ),
+        )
+    elif query.data == "lovelyx_helpe":
+        query.message.edit_text(
+            text="""So now you are at the end of basic tour. But this is not all I can do.
+Send /help in bot pm to access help menu
+There are many handy tools to try out. 
+And also if you have any suggessions about me, Don't forget to tell them to devs
+Again thanks for using me
+✗ By using @LOVELYR\_OBOT you are agreed to our terms & conditions""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="All Commands", callback_data="help_back")],
+                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpd"),
+                InlineKeyboardButton(text="Main menu", callback_data="emiko_")]]
+            ),
+        )
 
 def source_about_callback(update, context):
     query = update.callback_query
