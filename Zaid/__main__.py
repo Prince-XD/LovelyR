@@ -585,6 +585,8 @@ def lovelyx_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
+                 ],
+                 [
                     InlineKeyboardButton(text="Video Tutorial", callback_data="lovelyx_vida"),
                  ],
                  [
