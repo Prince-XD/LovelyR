@@ -724,8 +724,7 @@ Again thanks for using me
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
             LOVELYX_VIDAA,
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,           
+            parse_mode=ParseMode.MARKDOWN,           
         )
 
 def source_about_callback(update, context):
