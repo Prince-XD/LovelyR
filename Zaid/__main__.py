@@ -115,6 +115,7 @@ buttons = [
      ],
 ]
 
+LOVELYX_VIDA = "https://telegra.ph/file/dda6cad404808bc39b5c9.mp4"
 
 HELP_STRINGS = """
 ༆*Lovely comes with many special features in it*༆
@@ -584,6 +585,7 @@ def lovelyx_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
+                    InlineKeyboardButton(text="Video Tutorial", callback_data="lovelyx_vida"),
                  ],
                  [
                     InlineKeyboardButton(text="Next", callback_data="lovelyx_pro"),
@@ -714,6 +716,13 @@ Again thanks for using me
                 [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpd"),
                 InlineKeyboardButton(text="Main menu", callback_data="emiko_")]]
             ),
+        )
+
+    elif query.data == "lovelyx_vida":
+        query.message.reply_video(
+            LOVELYX_VIDA,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,           
         )
 
 def source_about_callback(update, context):
