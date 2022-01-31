@@ -115,7 +115,7 @@ buttons = [
      ],
 ]
 
-LOVELYX_VIDA = "https://telegra.ph/file/dda6cad404808bc39b5c9.mp4",
+LOVELYX_VIDA = "https://telegra.ph/file/dda6cad404808bc39b5c9.mp4"
 
 HELP_STRINGS = """
 ༆*Lovely comes with many special features in it*༆
