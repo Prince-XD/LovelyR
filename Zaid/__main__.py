@@ -722,7 +722,7 @@ Again thanks for using me
 
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
-            LOVELYX_VIDA,
+            video=LOVELYX_VIDA,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,           
         )
