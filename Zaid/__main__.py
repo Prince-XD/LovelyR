@@ -116,7 +116,7 @@ buttons = [
 ]
 
 
-LOVELYX_VIDA = "https://telegra.ph/file/f2927a73354e3b6114983.gif"
+LOVELYX_VIDAA = "https://telegra.ph/file/f2927a73354e3b6114983.gif"
 
 
 HELP_STRINGS = """
@@ -721,15 +721,11 @@ Again thanks for using me
                 InlineKeyboardButton(text="Main menu", callback_data="emiko_")]]
             ),
         )
-
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
-            LOVELYX_VIDA,
+            LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_")]]
-            ),
+            disable_web_page_preview=True,           
         )
 
 def source_about_callback(update, context):
