@@ -115,7 +115,9 @@ buttons = [
      ],
 ]
 
-LOVELYX_VIDA = "https://telegra.ph/file/dda6cad404808bc39b5c9.mp4"
+
+LOVELYX_VIDA = "https://telegra.ph/file/f2927a73354e3b6114983.gif"
+
 
 HELP_STRINGS = """
 ༆*Lovely comes with many special features in it*༆
@@ -722,9 +724,12 @@ Again thanks for using me
 
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
-            video=LOVELYX_VIDA,
+            LOVELYX_VIDA,
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,           
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_")]
+            ),         
         )
 
 def source_about_callback(update, context):
