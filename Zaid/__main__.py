@@ -592,6 +592,7 @@ def lovelyx_about_callback(update, context):
                     InlineKeyboardButton(text="Video Tutorial", callback_data="lovelyx_vida"),
                  ],
                  [
+                    InlineKeyboardButton(text="Back", callback_data="lovelyx_back"),
                     InlineKeyboardButton(text="Next", callback_data="lovelyx_pro"),
                  ]
                 ]
@@ -620,8 +621,8 @@ Before we go, I need admin permissions in this chat to work properly
 3) Giving full permissions make Lovely fully useful</b>""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="⬅️", callback_data="lovelyx_"),
-                InlineKeyboardButton(text="➡️", callback_data="lovelyx_help")],               
+              [[InlineKeyboardButton(text="previous", callback_data="lovelyx_"),
+                InlineKeyboardButton(text="next", callback_data="lovelyx_help")],               
               ]
             ),
         )
@@ -642,8 +643,8 @@ Refer Help menu to see everything in detail*""",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_pro"),
-                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpc")]
+                [InlineKeyboardButton(text="previous", callback_data="lovelyx_pro"),
+                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpc")]
                 ]
             ),
         )
@@ -663,8 +664,8 @@ Send /chatbot on and reply to any of my messages to see the magic""",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpb"),
-                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpd")]
+                [InlineKeyboardButton(text="previous", callback_data="lovelyx_helpb"),
+                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpd")]
                 ]
             ),
         )
@@ -682,8 +683,8 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.""",
          parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpc"),
-                 InlineKeyboardButton(text="➡️", callback_data="lovelyx_helpe")]
+                [InlineKeyboardButton(text="previous", callback_data="lovelyx_helpc"),
+                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpe")]
                 ]
             ),
         )
@@ -702,7 +703,7 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.""",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
-                InlineKeyboardButton(text="🔙 Back", callback_data="about_")]]
+                InlineKeyboardButton(text="Back", callback_data="about_")]]
             ),
         )
     elif query.data == "lovelyx_helpe":
@@ -716,9 +717,9 @@ Again thanks for using me
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="All Commands", callback_data="help_back")],
-                [InlineKeyboardButton(text="⬅️", callback_data="lovelyx_helpd"),
-                InlineKeyboardButton(text="Main menu", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="Help", callback_data="emiko_")],
+                [InlineKeyboardButton(text="back", callback_data="lovelyx_helpd"),
+                InlineKeyboardButton(text="Main menu", callback_data="lovelyx_")]]
             ),
         )
     elif query.data == "lovelyx_vida":
