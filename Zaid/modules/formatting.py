@@ -35,7 +35,7 @@ supports a large number of formatting options to make your messages more express
   `[button 1](buttonurl://example.com)`
   `[button 2](buttonurl://example.com:same)`
   `[button 3](buttonurl://example.com)`
-  This will show button 1 and 2 on the same line, with 3 underneath."""
+  This will show button 1 and 2 on the same line, with 3 underneath.""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
