@@ -1,4 +1,12 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+)
+
 
 def lovelyx_about_callback(update, context):
     query = update.callback_query
