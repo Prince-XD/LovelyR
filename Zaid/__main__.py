@@ -726,9 +726,6 @@ Again thanks for using me
         query.message.reply_video(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,         
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="back", callback_data="lovelyx_")]]
             ),
         )
 
