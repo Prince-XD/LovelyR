@@ -102,7 +102,7 @@ Click on help to learn more and Join @Lovelyappeal for report bugs!
 buttons = [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="About", callback_data="lovelyx_"),
+        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_"),
         InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),         
      ],
      [  
@@ -260,7 +260,7 @@ def start(update: Update, context: CallbackContext):
 [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="About", callback_data="lovelyx_"),
+        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_"),
         InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),
      ],
      [  
@@ -418,8 +418,8 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Basic Commands", callback_data="lovelyx_basic"),
-                    InlineKeyboardButton(text="Advanced Commands", callback_data="emiko_support"),
+                    InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
+                    InlineKeyboardButton(text="Advanced", callback_data="lovelyx_advance"),
                  ],      
                  [
                     InlineKeyboardButton(text="Fun and extra", callback_data="emiko_credit"),
@@ -1145,31 +1145,15 @@ Advanced commands will help you to secure your group easily and also you will kn
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_advance":
-        query.message.edit_text(
-            text="""This are some *Basic commands* which will help you to manage group easily by Lovely""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Admins", callback_data="lovelyx_admin"),
-                    InlineKeyboardButton(text="Bans/mute", callback_data="lovelyx_bansmute"),
-                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
+                    InlineKeyboardButton(text="Logomaker", callback_data="lovelyx_logo"),
+                    InlineKeyboardButton(text="Log channels", callback_data="lovelyx_logch"),
+                    InlineKeyboardButton(text="Search", callback_data="lovelyx_search"),
                  ],      
                  [
-                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
-                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
-                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Group", callback_data="lovelyx_group"),
-                    InlineKeyboardButton(text="Locks", callback_data="lovelyx_locks"),
-                    InlineKeyboardButton(text="Rules", callback_data="lovelyx_rules"),
+                    InlineKeyboardButton(text="Tagalert", callback_data="lovelyx_tagalert"),   
+                    InlineKeyboardButton(text="Translator", callback_data="lovelyx_trans"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
