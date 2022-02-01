@@ -101,7 +101,7 @@ Supported fillings:
 
 __mod_name__ = "Formatting"
 
-    lovelyx_callback_handler = CallbackQueryHandler(
+    CallbackQueryHandler(
         lovelyx_about_callback, pattern=r"lovelyx_", run_async=True
     )
 
