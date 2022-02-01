@@ -727,7 +727,6 @@ Again thanks for using me
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
             ),
-        )
 
     elif query.data == "lovelyx_admin":
         query.message.edit_text(
