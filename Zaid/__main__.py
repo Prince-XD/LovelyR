@@ -723,7 +723,7 @@ Again thanks for using me
             ),
         )
     elif query.data == "lovelyx_vida":
-        query.edit_video(
+        query.message.reply_video(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,         
             reply_markup=InlineKeyboardMarkup(
