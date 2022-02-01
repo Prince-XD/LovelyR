@@ -1031,6 +1031,153 @@ Locking bots will stop non-admins from adding bots to the chat.
             ),
         )
 
+    elif query.data == "lovelyx_tagalert":
+        query.message.edit_text(
+            text="""Here is help for the *Tagalert* module:
+
+If anyone tagged/mentioned in a group where Lovely is present
+Lovely will notify it to you in private message after enabling tag alerts
+
+*How to use this feature ?*
+❂ `/tagalert on` : Turn tag alerts on
+❂ `/tagalert off` : Turn tag alerts off""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_logo":
+        query.message.edit_text(
+            text="""Here is the help for the *Logomaker* module:
+ This is help menu for logomaker
+
+❂ /logo <text/name> - Create a logo with random view.
+❂ /wlogo <text/name> - Create a logo with wide view only.
+
+ Image Editor :
+
+❂  /edit <reply photo> - to edit image.""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_search":
+        query.message.edit_text(
+            text="""Here is the help for the *Search* module:
+
+❂ /google <query>: Perform a google search
+❂ /image <query>: Search Google for images and returns them
+For greater no. of results specify lim, For eg: /img hello lim=10
+❂ /app <appname>: Searches for an app in Play Store and returns its details.
+❂ /reverse: Does a reverse image search of the media which it was replied to.
+❂ /gps <location>: Get gps location.
+❂ /github <username>: Get information about a GitHub user.
+❂ /country <country name>: Gathering info about given country
+❂ /imdb <Movie name>: Get full info about a movie with imdb.com""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_logch":
+        query.message.edit_text(
+            text="""Here is the help for the *Log Channel​* module:
+
+──「 Log channel 」──
+
+❂ /logchannel: get log channel info
+❂ /setlog: set the log channel.
+❂ /unsetlog: unset the log channel.
+
+Setting the log channel is done by:
+
+➩ adding the bot to the desired channel (as an admin!)
+➩ sending /setlog in the channel
+➩ forwarding the /setlog to the group""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_trans":
+        query.message.edit_text(
+            text="""Here is the help for the Translator module:
+ 
+Use this module to translate stuff!
+Commands:
+❂ /tl (or /tr): as a reply to a message, translates it to English.
+❂ /tl <lang>: translates to <lang>
+eg: /tl ja: translates to Japanese.
+❂ /tl <source>//<dest>: translates from <source> to <lang>.
+eg:  /tl ja//en: translates from Japanese to English.
+❂ /langs: get a list of supported languages for translation.
+
+I can convert text to voice and voice to text..
+❂ /tts <lang code>: Reply to any message to get text to speech output
+❂ /stt: Type in reply to a voice message(support english only) to extract text from it.
+Language Codes
+`af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
+et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
+id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,
+ml,mn,mr,ms,mt,my,ne,nl,no,ny,pa,pl,ps,pt,ro,ru,sd,si,sk,sl,
+sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,
+vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_advance":
+        query.message.edit_text(
+            text="""*Advanced commands*
+Advanced commands will help you to secure your group easily and also you will know here some awesome features""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_advance":
+        query.message.edit_text(
+            text="""This are some *Basic commands* which will help you to manage group easily by Lovely""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Admins", callback_data="lovelyx_admin"),
+                    InlineKeyboardButton(text="Bans/mute", callback_data="lovelyx_bansmute"),
+                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
+                 ],      
+                 [
+                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
+                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
+                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Group", callback_data="lovelyx_group"),
+                    InlineKeyboardButton(text="Locks", callback_data="lovelyx_locks"),
+                    InlineKeyboardButton(text="Rules", callback_data="lovelyx_rules"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                 ]
+                ]
+            ),
+        )
+
 #🤣🤣🤣🤣
 
 def get_help(update: Update, context: CallbackContext):
