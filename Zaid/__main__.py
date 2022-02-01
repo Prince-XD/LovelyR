@@ -746,10 +746,6 @@ The Following Commands are Admins only:
 ❂ /del: deletes the message you replied to
 ❂ /purge: deletes all messages between this and the replied to message.
 ❂ /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
-❂ /setgtitle <text>: set group title
-❂ /setgpic: reply to an image to set as group photo
-❂ /setdesc: Set group description
-❂ /setsticker: Set group sticker
 
 Rules:
 ❂ /rules: get the rules for this chat.
@@ -918,7 +914,7 @@ Check /markdownhelp to know more!""",
                 [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
             ),
         )
-
+#🔥🔥🔥🔥🔥🔥
     elif query.data == "lovelyx_basic":
         query.message.edit_text(
             text="""This are some *Basic commands* which will help you to manage group easily by Lovely""",
@@ -929,19 +925,95 @@ Check /markdownhelp to know more!""",
                  [
                     InlineKeyboardButton(text="Admins", callback_data="lovelyx_admin"),
                     InlineKeyboardButton(text="Bans/mute", callback_data="lovelyx_bansmute"),
+                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
                  ],      
                  [
-                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
                     InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
+                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
+                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
                  ],
                  [
-                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
-                    InlineKeyboardButton(text="Blacklists", callback_data="lovelyx_blacklists"),
+                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
+                    InlineKeyboardButton(text="Group", callback_data="lovelyx_group"),
+                    InlineKeyboardButton(text="Locks", callback_data="lovelyx_locks"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
                  ]
                 ]
+            ),
+        )
+
+    elif query.data == "lovelyx_greetings":
+        query.message.edit_text(
+            text="""Here is the help for the *Greetings* module:
+
+*Admins only:*
+❂ /welcome <on/off>: enable/disable welcome messages.
+❂ /welcome: shows current welcome settings.
+❂ /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+❂ /goodbye: same usage and args as /welcome.
+❂ /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media.
+❂ /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media.
+❂ /resetwelcome: reset to the default welcome message.
+❂ /resetgoodbye: reset to the default goodbye message.
+❂ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
+❂ /welcomemutehelp: gives information about welcome mutes.
+❂ /cleanservice <on/off: deletes telegrams welcome/left service messages.
+ Example:
+user joined chat, user left chat.
+Welcome markdown:
+❂ /welcomehelp: view more formatting information for custom welcome/goodbye messages.""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_group":
+        query.message.edit_text(
+            text=Here is the help for the *Group* module:
+
+*Admins only:*
+❂ /setgtitle <text>: set group title
+❂ /setgpic: reply to an image to set as group photo
+❂ /setdesc: Set group description
+❂ /setsticker: Set group sticker""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_locks":
+        query.message.edit_text(
+            text="""Here is the help for the *Locks* module:
+
+Do stickers annoy you? or want to avoid people sharing links? or pictures? You're in the right place!
+The locks module allows you to lock away some common items in the telegram world; the bot will automatically delete them!
+
+❂ /locktypes: Lists all possible locktypes
+
+*Admins only:*
+
+❂ /lock <type>: Lock items of a certain type (not available in private)
+❂ /unlock <type>: Unlock items of a certain type (not available in private)
+❂ /locks: The current list of locks in this chat.
+
+Locks can be used to restrict a group's users.
+eg:
+Locking urls will auto-delete all messages with urls, locking stickers will restrict all non-admin users from sending stickers, etc.
+Locking bots will stop non-admins from adding bots to the chat.
+
+*Note:*
+❂ Unlocking permission info will allow members (non-admins) to change the group information, such as the description or the group name
+❂ Unlocking permission pin will allow members (non-admins) to pinned a message in a group""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
             ),
         )
 
