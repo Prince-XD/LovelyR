@@ -928,14 +928,14 @@ Check /markdownhelp to know more!""",
                     InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
                  ],      
                  [
-                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
                     InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
                     InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
+                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
                  ],
                  [
-                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
                     InlineKeyboardButton(text="Group", callback_data="lovelyx_group"),
                     InlineKeyboardButton(text="Locks", callback_data="lovelyx_locks"),
+                    InlineKeyboardButton(text="Rules", callback_data="lovelyx_rules"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
@@ -1016,6 +1016,22 @@ Locking bots will stop non-admins from adding bots to the chat.
                 [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
             ),
         )
+
+    elif query.data == "lovelyx_rules":
+        query.message.edit_text(
+            text="""Here is the help for the *Rules* module:
+*Rules:*
+❂ /rules: get the rules for this chat.
+❂ /setrules <your rules here>: set the rules for this chat.
+❂ /clearrules: clear the rules for this chat.""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+#🤣🤣🤣🤣
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
