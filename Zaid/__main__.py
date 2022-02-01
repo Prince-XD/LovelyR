@@ -779,12 +779,11 @@ def source_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                 [
-                    InlineKeyboardButton(text="Back", callback_data="emiko_"),
-                 ]
-                ]
+               reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
             ),
         )
+
     elif query.data == "source_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
