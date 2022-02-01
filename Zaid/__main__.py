@@ -973,7 +973,7 @@ Welcome markdown:
 
     elif query.data == "lovelyx_group":
         query.message.edit_text(
-            text=Here is the help for the *Group* module:
+            text="""Here is the help for the *Group* module:
 
 *Admins only:*
 ❂ /setgtitle <text>: set group title
