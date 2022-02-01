@@ -761,43 +761,6 @@ Rules:
             ),
         )
 
-def source_about_callback(update, context):
-    query = update.callback_query
-    if query.data == "source_":
-        query.message.edit_text(
-            text="Ok well done"
-                 "\n\nNow let me work correctly, you need to make me Admin of you Group!"
-                 "\n\nTo do that, follow the step:)"
-                 "\n\n•  Go to your group"
-                 "\n•  Press the Group's name"
-                 "\n•  Press Modify"
-                 "\n•  Press on Administrator"
-                 "\n•  Press Add Administrator"
-                 "\n•  Press the Magnifying Glass"
-                 "\n•  Search @LOVELYR_OBOT"
-                 "\n• Confirm",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-               reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
-            ),
-        )
-
-    elif query.data == "source_back":
-        first_name = update.effective_user.first_name
-        query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-        )
-
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -1114,10 +1077,6 @@ def main():
         lovelyx_about_callback, pattern=r"lovelyx_", run_async=True
     )
 
-    source_callback_handler = CallbackQueryHandler(
-        source_about_callback, pattern=r"source_", run_async=True
-    )
-
     donate_handler = CommandHandler("donate", donate, run_async=True)
     migrate_handler = MessageHandler(
         Filters.status_update.migrate, migrate_chats, run_async=True
@@ -1128,7 +1087,6 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(lovelyx_callback_handler)
-    dispatcher.add_handler(source_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
