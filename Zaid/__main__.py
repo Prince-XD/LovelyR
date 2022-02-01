@@ -758,8 +758,7 @@ Rules:
 ❂ /clearrules: clear the rules for this chat.""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="back", callback_data="lovelyx_")]              
-              ]
+              [[InlineKeyboardButton(text="back", callback_data="emiko_")]]
             ),
         )
 
