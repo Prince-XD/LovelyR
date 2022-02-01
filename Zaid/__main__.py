@@ -726,7 +726,7 @@ Again thanks for using me
         query.message.edit_text(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,  
-            disable_web_page_preview=True,         
+            disable_web_page_preview=False,         
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="back", callback_data="lovelyx_")]]
             ),
