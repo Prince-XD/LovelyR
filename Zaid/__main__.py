@@ -723,9 +723,12 @@ Again thanks for using me
             ),
         )
     elif query.data == "lovelyx_vida":
-        query.message.reply_video(
+        query.message.edit_video(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,           
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="back", callback_data="lovelyx_")]]
+            ),
         )
 
     elif query.data == "lovelyx_admin":
