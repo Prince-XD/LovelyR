@@ -938,7 +938,9 @@ Check /markdownhelp to know more!""",
                     InlineKeyboardButton(text="Rules", callback_data="lovelyx_rules"),
                  ],
                  [
+                    InlineKeyboardButton(text="Advance", callback_data="lovelyx_advance"),
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                    InlineKeyboardButton(text="Fun & Extra", callback_data="lovelyx_fe"),
                  ]
                 ]
             ),
@@ -1156,7 +1158,9 @@ Advanced commands will help you to secure your group easily and also you will kn
                     InlineKeyboardButton(text="Translator", callback_data="lovelyx_trans"),
                  ],
                  [
+                    InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                    InlineKeyboardButton(text="Fun & Extra", callback_data="lovelyx_fe"),
                  ]
                 ]
             ),
@@ -1432,9 +1436,11 @@ For any query join @LOVELYAPPEAL""",
                  ],
                  [
                     InlineKeyboardButton(text="Weather", callback_data="lovelyx_weather"), 
-                    InlineKeyboardButton(text="Back", callback_data="emiko_"),
                     InlineKeyboardButton(text="Telegraph", callback_data="lovelyx_telegraph"),
-                 ]
+                 ],
+                    InlineKeyboardButton(text="Advance", callback_data="lovelyx_advance"),
+                    InlineKeyboardButton(text="Back", callback_data="emiko_"),
+                    InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
                 ]
             ),
         )
