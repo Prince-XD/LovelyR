@@ -418,7 +418,7 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Basic Commands", callback_data="lovelyx_admin"),
+                    InlineKeyboardButton(text="Basic Commands", callback_data="lovelyx_basic"),
                     InlineKeyboardButton(text="Advanced Commands", callback_data="emiko_support"),
                  ],      
                  [
@@ -730,6 +730,7 @@ Again thanks for using me
     elif query.data == "lovelyx_admin":
         query.message.edit_text(
             text="""Here is the help for the Admins module:
+
 User Commands:
 ❂ /admins: list of admins in the chat
 ❂ /pinned: to get the current pinned message.
@@ -757,7 +758,190 @@ Rules:
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_bansmute":
+        query.message.edit_text(
+            text="""Here is the help for the Bans/Mutes module:
+
+*User Commands:*
+
+❂ /kickme: kicks the user who issued the command
+
+*Admins only:*
+
+❂ /ban <userhandle>: bans a user. (via handle, or reply)
+❂ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
+❂ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+❂ /unban <userhandle>: unbans a user. (via handle, or reply)
+❂ /kick <userhandle>: kicks a user out of the group, (via handle, or reply)
+❂ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
+❂ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+❂ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
+❂ /zombies: searches deleted accounts
+❂ /zombies clean: removes deleted accounts from the group.
+❂ /snipe <chatid> <string>: Make me send a message to a specific chat.""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_disable":
+        query.message.edit_text(
+            text="""Here is the help for the Disabling module:
+
+❂ /cmds: check the current status of *disabled* commands
+
+*Admins only:*
+
+❂ /enable <cmd name>: enable that command
+❂ /disable <cmd name>: disable that command
+❂ /enablemodule <module name>: enable all commands in that module
+❂ /disablemodule <module name>: disable all commands in that module
+❂ /listcmds: list all possible toggleable commands""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_fsubfed":
+        query.message.edit_text(
+            text="""Here is the help for the F-Sub/Feds module:
+
+*Force Subscribe:*
+
+❂ Lovely can mute members who are not subscribed your channel until they subscribe
+❂ When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them
+❂Setup
+Only creator
+❂ Add me in your group as admin
+❂ Add me in your channel as admin 
+ 
+Commmands
+❂ /fsub {channel username} - To turn on and setup the channel.
+
+  💡Do this first...
+
+❂ /fsub - To get the current settings.
+❂ /fsub disable - To turn of ForceSubscribe..
+
+  💡If you disable fsub, you need to set again for working.. /fsub {channel username} 
+
+❂ /fsub clear - To unmute all members who muted by me.
+
+*Federation*
+Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
+But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
+
+No longer! With Federation, you can make a ban in one chat overlap with all other chats.
+
+You can even designate federation admins, so your trusted admin can ban all the spammers from chats you want to protect.
+
+*Commands:*
+
+Feds are now divided into 3 sections for your ease.
+• `/fedownerhelp`: Provides help for fed creation and owner only commands
+• `/fedadminhelp`: Provides help for fed administration commands
+• `/feduserhelp`: Provides help for commands anyone can use""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_blacklists":
+        query.message.edit_text(
+            text="""Here is the help for the Blacklists module:
+
+
+Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
+
+*NOTE: Blacklists do not affect group admins.*
+
+❂ /blacklist: View the current blacklisted words.
+
+*Admin only:*
+❂ /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
+❂ /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+❂ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
+
+Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
+NOTE: Blacklist stickers do not affect the group admin
+❂ /blsticker: See current blacklisted sticker
+Only admin:
+❂ /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
+❂ /unblsticker <sticker link>: Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once
+❂ /rmblsticker <sticker link>: Same as above
+❂ /blstickermode <delete/ban/tban/mute/tmute>: sets up a default action on what to do if users use blacklisted stickers
+Note:
+❂ <sticker link> can be `https://t.me/addstickers/<sticker> or just <sticker>` or reply to the sticker message""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_filters":
+        query.message.edit_text(
+            text="""Here is the help for the Filters module:
+
+❂ /filters*:* List all active filters saved in the chat.
+*Admin only:*
+❂ /filter <keyword> <reply message>*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
+is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
+keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
+doin?
+ Separate diff replies by `%%%` to get random replies
+ *Example:* 
+ `/filter "filtername"
+ Reply 1
+ %%%
+ Reply 2
+ %%%
+ Reply 3`
+❂ /stop <filter keyword>*:* Stop that filter.
+*Chat creator only:*
+❂ /removeallfilters*:* Remove all chat filters at once.
+*Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
+Check /markdownhelp to know more!""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_basic":
+        query.message.edit_text(
+            text="""This are some *Basic commands* which will help you to manage group easily by Lovely""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Admins", callback_data="lovelyx_admin"),
+                    InlineKeyboardButton(text="Bans/mute", callback_data="lovelyx_bansmute"),
+                 ],      
+                 [
+                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
+                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
+                    InlineKeyboardButton(text="Blacklists", callback_data="lovelyx_blacklists"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                 ]
+                ]
             ),
         )
 
