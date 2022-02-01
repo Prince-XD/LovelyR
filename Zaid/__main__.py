@@ -757,6 +757,7 @@ Rules:
 ❂ /setrules <your rules here>: set the rules for this chat.
 ❂ /clearrules: clear the rules for this chat.""",
             parse_mode=ParseMode.HTML,
+            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
               [[InlineKeyboardButton(text="back", callback_data="emiko_")]]
             ),
