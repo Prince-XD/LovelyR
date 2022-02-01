@@ -538,7 +538,7 @@ def emiko_about_callback(update, context):
                  "\n❂ /stickerid: reply to a sticker to me to tell you its file ID."
                  "\n❂ /getsticker: reply to a sticker to me to upload its raw PNG file."
                  "\n❂ /kang: reply to a sticker to add it to your pack."
-                 "\n❂ /delsticker: Reply to your anime exist sticker to your pack to delete it."
+                 "\n❂ /delsticker: to your anime exist sticker to your pack to delete it."
                  "\n❂ /stickers: Find stickers for given term on combot sticker catalogue"
                  "\n❂ /tiny: To make small sticker"
                  "\n❂ /kamuii <1-8> : To deepefying stiker"
@@ -723,7 +723,7 @@ Again thanks for using me
             ),
         )
     elif query.data == "lovelyx_vida":
-        query.message.edit_text(
+        query.message.edit_videol(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,  
             disable_web_page_preview=False,         
