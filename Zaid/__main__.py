@@ -725,8 +725,7 @@ Again thanks for using me
     elif query.data == "lovelyx_vida":
         query.message.edit_video(
             LOVELYX_VIDAA,
-            parse_mode=ParseMode.MARKDOWN,  
-            disable_web_page_preview=False,         
+            parse_mode=ParseMode.MARKDOWN,         
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="back", callback_data="lovelyx_")]]
             ),
