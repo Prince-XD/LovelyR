@@ -1438,6 +1438,7 @@ For any query join @LOVELYAPPEAL""",
                     InlineKeyboardButton(text="Weather", callback_data="lovelyx_weather"), 
                     InlineKeyboardButton(text="Telegraph", callback_data="lovelyx_telegraph"),
                  ],
+                 [
                     InlineKeyboardButton(text="Advance", callback_data="lovelyx_advance"),
                     InlineKeyboardButton(text="Back", callback_data="emiko_"),
                     InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
