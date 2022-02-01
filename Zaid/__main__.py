@@ -404,34 +404,32 @@ def emiko_about_callback(update, context):
     query = update.callback_query
     if query.data == "emiko_":
         query.message.edit_text(
-       text="I'm Lovely, a powerful group management bot built to help you manage your group easily."
-            "\n• I can restrict users."
-            "\n• I can greet users with customizable welcome messages and even set a group's rules."
-            "\n• I have an advanced anti-flood system."
-            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n• I check for admins' permissions before executing any command and more stuffs"
-            "\n\n_ licensed under the GNU General Public License v3.0_"
-            "\n\n Click on button bellow to get basic help.",
+       text="""Hey there! My name is *Lovely 🇮🇳*
+I'm a Queen For Fun and help admins manage their groups! 
+Have a look at the following for an idea of some of the things I can help you with.
+*Main commands available:*
+ • /help: PM's you this message and also you can use this in group
+ • /help <module name>: PM's you info about that module.
+ • /settings:
+   • in PM: will send you your settings for all supported modules.
+   • in a group: will redirect you to pm, with all that chat's settings.
+
+All commands can either be used with / or !.
+And the following:""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
                     InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
+                    InlineKeyboardButton(text="All", callback_data="help_back"),
                     InlineKeyboardButton(text="Advanced", callback_data="lovelyx_advance"),
                  ],      
                  [
-                    InlineKeyboardButton(text="Fun and extra", callback_data="emiko_credit"),
+                    InlineKeyboardButton(text="Fun and extra", callback_data="lovelyx_fe"),
+                    InlineKeyboardButton(text="Back", callback_data="emiko_back"),
                     InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
-                 ],
-                 [
-                    InlineKeyboardButton(text="All Commands", callback_data="help_back"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
                  ]
-                ]
             ),
         )
     elif query.data == "emiko_back":
@@ -1091,7 +1089,7 @@ For greater no. of results specify lim, For eg: /img hello lim=10
         query.message.edit_text(
             text="""Here is the help for the *Log Channel​* module:
 
-──「 Log channel 」──
+  *Log channel*
 
 ❂ /logchannel: get log channel info
 ❂ /setlog: set the log channel.
@@ -1158,6 +1156,283 @@ Advanced commands will help you to secure your group easily and also you will kn
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                 ]
+                ]
+            ),
+        )
+
+    elif query.data == "lovelyx_info":
+        query.message.edit_text(
+            text="""Here is the help for the *Info* module:
+
+ID:
+❂ /id: get the current group id. If used by replying to a message, gets that user's id.
+❂ /gifid: reply to a gif to me to tell you its file ID.
+ 
+Self addded information: 
+❂ /setme <text>: will set your info
+❂ /me: will get your or another user's info.
+Examples:
+❂ /setme I am a wolf.
+❂ /me @username(defaults to yours if no user specified)
+ 
+Information others add on you: 
+❂ /bio: will get your or another user's bio. This cannot be set by yourself.
+❂ /setbio <text>: while replying, will save another user's bio 
+Examples:
+❂ /bio @username(defaults to yours if not specified).
+❂ /setbio This user is a wolf (reply to the user)
+ 
+Overall Information about you:
+❂ /info: get information about a user. 
+ 
+json Detailed info:
+❂ /json: Get Detailed info about any message.""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_extras":
+        query.message.edit_text(
+            text="""Here is the help for the "Extras* module:
+
+*Available commands:*
+
+❂ /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats
+❂ /paste: Saves replied content to nekobin.com and replies with a url
+❂ /react: Reacts with a random reaction 
+❂ /ud <word>: Type the word or expression you want to search use
+❂ /reverse: Does a reverse image search of the media which it was replied to.
+❂ /wiki <query>: wikipedia your query
+❂ /wall <query>: get a wallpaper from wall.alphacoders.com
+❂ /cash: currency converter
+ Example:
+ `/cash 1 USD INR  
+      OR
+ /cash 1 usd inr
+ Output: 1.0 USD = 75.505 INR`""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_sangmata":
+        query.message.edit_text(
+            text="""Here is the help for *Sangmata Info* module:
+❂ /sg <reply>: To check history name""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_telegraph":
+        query.message.edit_text(
+            text="""Here is the help for the *Telegraph* module:
+
+❂ /tgm : Get Telegraph Link Of Replied Media
+❂ /tgt: Get Telegraph Link of Replied Text""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_weather":
+        query.message.edit_text(
+            text="""Here is help for *Weather* module: 
+Date-time-Weather
+❂ /time <country code>: Gives information about a timezone.
+❂ /weather <city>: Get weather info in a particular place.
+❂ /wttr <city>: Advanced weather module, usage same as /weather
+❂ /wttr moon: Get the current status of moon""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_fun":
+        query.message.edit_text(
+            text="""Here is the help for the *Fun* module:
+
+❂ /runs: reply a random string from an array of replies
+❂ /slap: slap a user, or get slapped if not a reply
+❂ /shrug: get shrug XD
+❂ /table: get flip/unflip :v
+❂ /decide: Randomly answers yes/no/maybe
+❂ /toss: Tosses A coin
+❂ /bluetext: check urself :V
+❂ /roll: Roll a dice
+❂ /rlg: Join ears,nose,mouth and create an emo ;-;
+❂ /shout <keyword>: write anything you want to give loud shout
+❂ /weebify <text>: returns a weebified text
+❂ /sanitize: always use this before /pat or any contact
+❂ /pat: pats a user, or get patted
+❂ /8ball: predicts using 8ball method
+
+- Animation
+❂ /love 
+❂ /hack 
+❂ /bombs 
+
+*Couples*
+❂ /couples - get couples of today
+
+*- Here is the help for the Styletext module:*
+
+❂ /weebify <text>: weebify your text!
+❂ /bubble <text>: bubble your text!
+❂ /fbubble <text>: bubble-filled your text!
+❂ /square <text>: square your text!
+❂ /fsquare <text>: square-filled your text!
+❂ /blue <text>: bluify your text!
+❂ /latin <text>: latinify your text!
+❂ /lined <text>: lined your text!""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_style":
+        query.message.edit_text(
+            text="""Here is the help for the *Styletext* module:
+
+❂ /weebify <text>: weebify your text!
+❂ /bubble <text>: bubble your text!
+❂ /fbubble <text>: bubble-filled your text!
+❂ /square <text>: square your text!
+❂ /fsquare <text>: square-filled your text!
+❂ /blue <text>: bluify your text!
+❂ /latin <text>: latinify your text!
+❂ /lined <text>: lined your text!""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_ani":
+        query.message.edit_text(
+            text="""Here is the help for the *Animation* module
+
+*Commands*
+❂ /love 
+❂ /hack 
+❂ /bombs """,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_couples":
+        query.message.edit_text(
+            text="""Here is the help for the *Couples* module
+
+*Commands*
+❂ /couples - get couples of today""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_anime":
+        query.message.edit_text(
+            text="""Here is the help for the Anime module:
+
+  *Anime search*                         
+❂ /anime <anime>: returns information about the anime.
+❂ /whatanime: returns source of anime when replied to photo or gif.                                                          
+❂ /character <character>: returns information about the character.
+❂ /manga <manga>: returns information about the manga.
+❂ /user <user>: returns information about a MyAnimeList user.
+❂ /upcoming: returns a list of new anime in the upcoming seasons.
+❂ /airing <anime>: returns anime airing info.
+❂ /whatanime <anime>: reply to gif or photo.
+❂ /kaizoku <anime>: search an anime on animekaizoku.com
+❂ /kayo <anime>: search an anime on animekayo.com
+
+  *Anime Quotes*
+❂ /animequotes: for anime quotes randomly as photos.
+❂ /quote: send quotes randomly as text""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_hht":
+        query.message.edit_text(
+            text="""hh
+H""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+    elif query.data == "lovelyx_afk":
+        query.message.edit_text(
+            text="""Here is the help for *Afk* module:
+
+*Commands:*
+When marked as AFK, any mentions will be replied to with a message stating that you're not available!
+❂ /afk <reason>: Mark yourself as AFK.
+  - brb <reason>: Same as the afk command, but not a command. """,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_fe")]]
+            ),
+        )
+
+
+    elif query.data == "lovelyx_fe":
+        query.message.edit_text(
+            text="""Fun tools and Extras
+Extra tools which are available in bot and tools made for fun are here
+You can choose an option below, by clicking a button.
+For any query join @LOVELYAPPEAL""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Afk", callback_data="lovelyx_afk"),
+                    InlineKeyboardButton(text="Anime", callback_data="lovelyx_anime"),
+                    InlineKeyboardButton(text="Animation", callback_data="lovelyx_ani"),
+                 ],      
+                 [
+                    InlineKeyboardButton(text="Couples", callback_data="lovelyx_couples"),
+                    InlineKeyboardButton(text="Extras", callback_data="lovelyx_extras"),
+                    InlineKeyboardButton(text="Fun", callback_data="lovelyx_fun"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Info", callback_data="lovelyx_info"),
+                    InlineKeyboardButton(text="Sangmata", callback_data="lovelyx_sangmata"),
+                    InlineKeyboardButton(text="Styletext", callback_data="lovelyx_style"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Weather", callback_data="lovelyx_weather"), 
+                    InlineKeyboardButton(text="Back", callback_data="emiko_"),
+                    InlineKeyboardButton(text="Telegraph", callback_data="lovelyx_telegraph"),
                  ]
                 ]
             ),
