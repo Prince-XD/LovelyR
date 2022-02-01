@@ -757,11 +757,7 @@ Rules:
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-              [
-                [
-                   InlineKeyboardButton(text="back", callback_data="emiko_"),
-                ]
-             ]
+                [[InlineKeyboardButton(text="Back", callback_data="emiko_")]]
             ),
         )
 
