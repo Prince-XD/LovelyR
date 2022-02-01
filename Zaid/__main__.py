@@ -430,6 +430,7 @@ And the following:""",
                     InlineKeyboardButton(text="Back", callback_data="emiko_back"),
                     InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
                  ]
+               ]
             ),
         )
     elif query.data == "emiko_back":
