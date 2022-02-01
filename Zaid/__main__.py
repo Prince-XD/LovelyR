@@ -730,11 +730,9 @@ Again thanks for using me
     elif query.data == "lovelyx_admin":
         query.message.edit_text(
             text="""Here is the help for the Admins module:
-
 User Commands:
 ❂ /admins: list of admins in the chat
 ❂ /pinned: to get the current pinned message.
-
 The Following Commands are Admins only: 
 ❂ /pin: silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
 ❂ /unpin: unpins the currently pinned message
@@ -756,10 +754,14 @@ Rules:
 ❂ /rules: get the rules for this chat.
 ❂ /setrules <your rules here>: set the rules for this chat.
 ❂ /clearrules: clear the rules for this chat.""",
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="back", callback_data="emiko_")]]
+              [
+                [
+                   InlineKeyboardButton(text="back", callback_data="emiko_"),
+                ]
+             ]
             ),
         )
 
@@ -781,12 +783,8 @@ def source_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
                  [
-                    InlineKeyboardButton(text="Video Tutorial", url="https://t.me/LOVELY_ROBOTS/38https://t.me/LOVELY_ROBOTS/38"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Done", callback_data="emiko_"),
+                    InlineKeyboardButton(text="Back", callback_data="emiko_"),
                  ]
                 ]
             ),
