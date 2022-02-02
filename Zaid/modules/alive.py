@@ -9,7 +9,7 @@ from Zaid.events import register
 from Zaid import telethn as tbot
 
 
-VIDEO = "https://telegra.ph/file/1e75382f8192606545f11.mp4"
+PHOTO = "https://telegra.ph/file/1e75382f8192606545f11.mp4"
 
 @register(pattern=("/alive"))
 async def awake(event):
