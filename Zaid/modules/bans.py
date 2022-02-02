@@ -43,6 +43,145 @@ from Zaid.modules.helper_funcs.string_handling import extract_time
 from Zaid.modules.log_channel import gloggable, loggable
 
 
+@connection_status
+@bot_admin
+@can_restrict
+@user_admin
+@user_can_ban
+@loggable
+def ban(update: Update, context: CallbackContext) -> str:
+    chat = update.effective_chat
+    user = update.effective_user
+    message = update.effective_message
+    log_message = ""
+    bot = context.bot
+    args = context.args
+    user_id, reason = extract_user_and_text(message, args)
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        r = bot.ban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
+        if r:
+            message.reply_text("Channel {} was banned successfully from {}".format(
+                html.escape(message.reply_to_message.sender_chat.title),
+                html.escape(chat.title)
+            ),
+                parse_mode="html"
+            )
+            return (
+                f"<b>{html.escape(chat.title)}:</b>\n"
+                f"#BANNED\n"
+                f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+                f"<b>Channel:</b> {html.escape(message.reply_to_message.sender_chat.title)} ({message.reply_to_message.sender_chat.id})"
+            )
+        else:
+            message.reply_text("Failed to ban channel")
+        return
+
+    if not user_id:
+        message.reply_text("I doubt that's a user.")
+        return log_message
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message != "User not found":
+            raise
+        message.reply_text("Can't seem to find this person.")
+        return log_message
+    if user_id == bot.id:
+        message.reply_text("Oh yeah, ban myself, noob!")
+        return log_message
+
+    if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
+        if user_id == OWNER_ID:
+            message.reply_text("Trying to put me against a Master huh?")
+        elif user_id in DEV_USERS:
+            message.reply_text("I can't act against our own.")
+        elif user_id in DRAGONS:
+            message.reply_text(
+                "Fighting this Bersekser here will put user lives at risk."
+            )
+        elif user_id in DEMONS:
+            message.reply_text(
+                "Bring an order from Master Servant to fight a Assasin servant."
+            )
+        elif user_id in TIGERS:
+            message.reply_text(
+                "Bring an order from Master Servant to fight a Lancer servant."
+            )
+        elif user_id in WOLVES:
+            message.reply_text("Rider abilities make them ban immune!")
+        else:
+            message.reply_text("This user has immunity and cannot be banned.")
+        return log_message
+    if message.text.startswith("/s"):
+        silent = True
+        if not can_delete(chat, context.bot.id):
+            return ""
+    else:
+        silent = False
+    log = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#{'S' if silent else ''}BANNED\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+        f"<b>User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
+    )
+    if reason:
+        log += "\n<b>Reason:</b> {}".format(reason)
+
+    try:
+        chat.ban_member(user_id)
+
+        if silent:
+            if message.reply_to_message:
+                message.reply_to_message.delete()
+            message.delete()
+            return log
+
+        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        reply = (
+            f"<code>❕</code><b>Ban Event</b>\n"
+            f"<code> </code><b>• User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
+        )
+        if reason:
+            reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
+
+        bot.sendMessage(
+            chat.id,
+            reply,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Unban", callback_data=f"unbanb_unban={user_id}"
+                        ),
+                        InlineKeyboardButton(text="Delete", callback_data="unbanb_del"),
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML,
+        )
+        return log
+
+    except BadRequest as excp:
+        if excp.message == "Reply message not found":
+            # Do not reply
+            if silent:
+                return log
+            message.reply_text("Banned!", quote=False)
+            return log
+        else:
+            LOGGER.warning(update)
+            LOGGER.exception(
+                "ERROR banning user %s in chat %s (%s) due to %s",
+                user_id,
+                chat.title,
+                chat.id,
+                excp.message,
+            )
+            message.reply_text("Uhm...that didn't work...")
+
+    return log_message
+
+
 
 @connection_status
 @bot_admin
