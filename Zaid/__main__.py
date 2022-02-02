@@ -243,35 +243,21 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm Lovely group management/Music bot."
-            "\n\n I can do a variety of things, most common of em are:"
-            "\n- Restrict users with ban permissions."
-            "\n- Greet users with media + text and buttons, with proper formatting."
-            "\n- Restrict users who flood your chat using my anti-flood module."
-            "\n- Warn users according to the options set and restrict em accordingly."
-            "\n- Save notes and filters with proper formatting and reply markup."
-            "\n- I can also Play Music in groups"
-            "\n\n Theres even more! this is just the tip of the iceberg. Do note I need"
-            "\n to be promoted with proper admin permissions to function properly." 
-            "\n Else I won't be able to function as said."
-            "\n\n Click on help to learn more and Join @Lovelyappeal for report bugs!",
-            parse_mode=ParseMode.MARKDOWN,
+            "*Lovely is alive* use below buttons to explore my features in group or pm!",
             reply_markup=InlineKeyboardMarkup(
-[
-     [
-        InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_"),
-        InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),
-     ],
-     [  
-        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
-        InlineKeyboardButton(text="Help", callback_data="emiko_"),
-        InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
-     ], 
-     [
-       InlineKeyboardButton(text="Music Bot", callback_data="shikhar_"),
-     ],
-]
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Open in private chat",
+                            url="t.me/{}?start".format(context.bot.username),
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Explore here", callback_data="emiko_back"
+                        ),
+                    ],
+                ]
             ),
         )
 
