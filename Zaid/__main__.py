@@ -116,7 +116,7 @@ buttons = [
 ]
 
 
-LOVELYX_VIDAA = """https://telegra.ph/file/f2927a73354e3b6114983.mp4"""
+LOVELYX_VIDAA = """https://telegra.ph/file/34f30bd06c6f62778f075.mp4"""
 
 
 HELP_STRINGS = """
