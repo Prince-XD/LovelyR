@@ -5,7 +5,7 @@ This is part of @szrosebot so don't change anything....
 
 import asyncio
 from pyrogram import filters
-from rose import app
+from Zaid import app
 from pyrogram.types import Message
 from Zaid import eor
 from Zaid.utils.errors import capture_err
