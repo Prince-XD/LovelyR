@@ -80,7 +80,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """
+LOVELY_MENU = """
 Hi {}
 I'm Lovely group management/Music bot.
 
@@ -99,7 +99,7 @@ Else I won't be able to function as said.
 Click on help to learn more and Join @Lovelyappeal for report bugs!
 """
 
-buttons = [
+Lovelybuttons = [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
         InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_"),
@@ -119,7 +119,7 @@ buttons = [
 LOVELYX_VIDAA = """https://telegra.ph/file/34f30bd06c6f62778f075.mp4"""
 
 
-HELP_STRINGS = """
+LOVELY_HELP = """
 ༆*Lovely comes with many special features in it*༆
 ꧁*check all button below to explore every commands of lovely*꧂
 𖣘 *All commands can either be used with* `/` *or* `!`.
@@ -231,12 +231,12 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(
+                LOVELY_MENU.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),                        
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(Lovelybuttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
@@ -352,7 +352,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=LOVELY_HELP,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -362,7 +362,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=LOVELY_HELP,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -371,7 +371,7 @@ def help_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=LOVELY_HELP,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
@@ -432,131 +432,6 @@ And the following:""",
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
-        )
-
-    elif query.data == "emiko_admin":
-        query.message.edit_text(
-            text="❂ /ban <userhandle>: bans a user. (via handle, or reply)"
-                 "\n ❂ /unban <userhandle>: unbans a user. (via handle, or reply)"
-                 "\n❂ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user."
-                 "\n❂ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user."
-                 "\n\n❂ /promote: promotes the user replied to"
-                 "\n❂ /fullpromote: promotes the user replied to with full rights"
-                 "\n❂ /demote: demotes the user replied to"
-                 "\n❂ /title <title here>: sets a custom title for an admin that the bot promoted"
-                 "\n❂ /admincache: refresh the admins list"
-                 "\n❂ /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users"
-                 "\n❂ /unpin: unpins the currently pinned message"
-                 "\n❂ /invitelink: gets invitelink"
-                 "\n❂ /purge: deletes all messages between this and the replied to message."
-                 "\n\n**Rules:**"
-                 "\n❂ /rules: get the rules for this chat."
-                 "\n❂ /setrules <your rules here>: set the rules for this chat."
-                 "\n❂ /clearrules: clear the rules for this chat."
-                 "\n❂ /filters: List all active filters saved in the chat."
-                 "\n\n**Admin only:**"
-                 "\n❂ /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'is mentioned."
-                 "\n\n❂ /stop <filter keyword>: Stop that filter."
-                 "\n\n**Note:** Filters also support markdown formatters like: {first}, {last} etc.. and buttons."
-                 "\nCheck /markdownhelp to know more!"
-                 "\n\nOverall Information about you:"
-                 "\n❂ /info: get information about a user."
-                 "\n\njson Detailed info:"
-                 "\n❂ /json: Get Detailed info about any message."
-                 "\n\n**Welcome/Goodbye:**"
-                 "\n❂ /welcome <on/off>: enable/disable welcome messages."
-                 "\n❂ /welcome: shows current welcome settings."
-                 "\n❂ /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!"
-                 "\n❂ /goodbye: same usage and args as /welcome."
-                 "\n❂ /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media."
-                 "\n❂ /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media."
-                 "\n❂ /resetwelcome: reset to the default welcome message."
-                 "\n❂ /resetgoodbye: reset to the default goodbye",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
-            ),
-        )
-
-    elif query.data == "emiko_support":
-        query.message.edit_text(
-            text="\n❂ /admins: list of admins in the chat"
-                 "\n❂ /pinned: to get the current pinned message"
-                 "\n❂ /setgpic: reply to an image to set as group photo"
-                 "\n❂ /setdesc: Set group description"
-                 "\n❂ /setsticker: Set group sticker"
-                 "\n\n❂ /animequotes: for anime quotes randomly as photos."
-                 "\n❂ /quote: send quotes randomly as text"
-                 "\n\n❂ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)"
-                 "\n❂ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days."
-                 "\n❂ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days."
-                 "\n❂ /zombies: searches deleted accounts"
-                 "\n❂ /zombies clean: removes deleted accounts from the group."
-                 "\n❂ /snipe <chatid> <string>: Make me send a message to a specific chat."
-                 "\n\n❂ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat."
-                 "\n❂ /welcomemutehelp: gives information about welcome mutes."
-                 "\n❂ /cleanservice <on/off: deletes telegrams welcome/left service messages."
-                 "\n\n**Example:**"
-                 "\nuser joined chat, user left chat."
-                 "\n\n**Welcome markdown:**"
-                 "\n❂ /welcomehelp: view more formatting information for custom welcome/goodbye messages."
-                 "\n\n❂ /logo <text/name> - Create a logo with random view."
-                 "\n❂ /wlogo <text/name> - Create a logo with wide view only."
-                 "\n\n**Image Editor :**"
-                 "\n❂  /edit <reply photo> - to edit image.",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
-            ),
-        )
-
-    elif query.data == "emiko_credit":
-        query.message.edit_text(
-            text="Fun And extra commands"
-                 "\n\n❂ /logo <text/name> - Create a logo with random view."
-                 "\n❂ /wlogo <text/name> - Create a logo with wide view only."
-                 "\n\nImage Editor :"
-                 "\n❂  /edit <reply photo> - to edit image."
-                 "\n\nstickers tools"
-                 "\n❂ /stickerid: reply to a sticker to me to tell you its file ID."
-                 "\n❂ /getsticker: reply to a sticker to me to upload its raw PNG file."
-                 "\n❂ /kang: reply to a sticker to add it to your pack."
-                 "\n❂ /delsticker: to your anime exist sticker to your pack to delete it."
-                 "\n❂ /stickers: Find stickers for given term on combot sticker catalogue"
-                 "\n❂ /tiny: To make small sticker"
-                 "\n❂ /kamuii <1-8> : To deepefying stiker"
-                 "\n❂ /mmf <reply with text>: To draw a text for sticker or pohots"
-                 "\n\n❂ /runs: reply a random string from an array of replies"
-                 "\n❂ /slap: slap a user, or get slapped if not a reply"
-                 "\n❂ /shrug: get shrug XD"
-                 "\n❂ /table: get flip/unflip :v"
-                 "\n❂ /decide: Randomly answers yes/no/maybe"
-                 "\n❂ /toss: Tosses A coin"
-                 "\n❂ /bluetext: check urself :V"
-                 "\n❂ /roll: Roll a dice"
-                 "\n❂ /rlg: Join ears,nose,mouth and create an emo ;-;"
-                 "\n❂ /shout <keyword>: write anything you want to give loud shout"
-                 "\n❂ /weebify <text>: returns a weebified text"
-                 "\n❂ /sanitize: always use this before /pat or any contact"
-                 "\n❂ /pat: pats a user, or get patted"
-                 "\n❂ /8ball: predicts using 8ball method"
-                 "\n\n- Animation"
-                 "\n❂ /love"
-                 "\n❂ /hack"
-                 "\n❂ /bombs"
-                 "\n\n- Shippering"
-                 "\n❂ /couples - get couples of today"
-                 "\n\nMusic and video commands"
-                 "\n❂ /video or /vsong (query): download video from youtube"
-                 "\n❂ /music or /song (query): download song from yt servers. (API BASED)"
-                 "\n❂ /lyrics (song name) : This plugin searches for song lyrics with song name.",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
-            ),
         )
 
 
@@ -1497,7 +1372,7 @@ def get_help(update: Update, context: CallbackContext):
         )
 
     else:
-        send_help(chat.id, HELP_STRINGS)
+        send_help(chat.id, LOVELY_HELP)
 
 
 def send_settings(chat_id, user_id, user=False):
