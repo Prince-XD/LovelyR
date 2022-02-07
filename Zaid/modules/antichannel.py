@@ -8,7 +8,7 @@ from pyrogram import filters
 from rose import app
 from pyrogram.types import Message
 from Zaid import eor
-from Zaid.core.decorators.errors import capture_err
+from Zaid.utils.errors import capture_err
 
 active_channel = []
 
