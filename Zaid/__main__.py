@@ -176,6 +176,9 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
+    if hasattr(imported_module, "__lovely_basic__") and imported_module.__lovely_basic__:
+        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+
 
 # do not async
 def send_help(chat_id, text, keyboard=None):
@@ -385,6 +388,67 @@ def help_button(update, context):
     except BadRequest:
         pass
 
+def lovelybasic_button(update, context):
+    query = update.callback_query
+    mod_match = re.match(r"_module\((.+?)\)", query.data)
+    prev_match = re.match(r"lovelybasic_prev\((.+?)\)", query.data)
+    next_match = re.match(r"lovelybasic_next\((.+?)\)", query.data)
+    back_match = re.match(r"lovelybasic_back", query.data)
+
+    print(query.message.chat.id)
+
+    try:
+        if mod_match:
+            module = mod_match.group(1)
+            text = (
+                "Here is the help for the *{}* module:\n".format(
+                    HELPABLE[module].__mod_name__
+                )
+                + HELPABLE[module].__lovely_basic__
+            )
+            query.message.edit_text(
+                text=text,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                  [
+                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelybasic_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                  ]
+                ),
+            )
+
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
+            query.message.edit_text(
+                text=LOVELY_BASIC,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(curr_page - 1, HELPABLE, "lovelybasic")
+                ),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.edit_text(
+                text=LOVELY_BASIC,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, HELPABLE, "lovelybasic")
+                ),
+            )
+
+        elif back_match:
+            query.message.edit_text(
+                text=LOVELY_BASIC,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, HELPABLE, "lovelybasic")
+                ),
+            )
+
+    except BadRequest:
+        pass
 
 def emiko_about_callback(update, context):
     query = update.callback_query
@@ -407,7 +471,7 @@ And the following:""",
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
+                    InlineKeyboardButton(text="Basic", callback_data="lovelybasic_back"),
                     InlineKeyboardButton(text="All", callback_data="help_back"),
                     InlineKeyboardButton(text="Advanced", callback_data="lovelyx_advance"),
                  ],      
@@ -1613,6 +1677,11 @@ def main():
         help_button, pattern=r"help_.*", run_async=True
     )
 
+    lovelybasic_handler = CommandHandler("lovelybasic", run_async=True)
+    lovelybasic_callback_handler = CallbackQueryHandler(
+        lovelybasic_button, pattern=r"lovelybasic_.*", run_async=True
+    )
+
     settings_handler = CommandHandler("settings", get_settings, run_async=True)
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_", run_async=True
@@ -1634,10 +1703,12 @@ def main():
     dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
+    dispatcher.add_handler(lovelybasic_handler)
     dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(lovelyx_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
+    dispatcher.add_handler(lovelybasic_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
