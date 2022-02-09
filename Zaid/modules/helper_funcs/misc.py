@@ -109,17 +109,18 @@ def revert_buttons(buttons):
     res = ""
     for btn in buttons:
         if btn.same_line:
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
-            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)      
+            res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)                  
+        else:
+            res += "\n[{}](buttonurl://{})".format(btn.name, btn.url)
+
+    return res
+
+
+def revert_buttons(buttons):
+    res = ""
+    for btn in buttons:
+        if btn.tush_line:
+            res += "\n[{}](buttonurl://{}:tush)".format(btn.name, btn.url)                  
         else:
             res += "\n[{}](buttonurl://{})".format(btn.name, btn.url)
 
