@@ -136,6 +136,7 @@ DONATE_STRING = """Heya, glad to hear you want to donate!
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
+LOVELY_BASIC = {}
 STATS = []
 USER_INFO = []
 DATA_IMPORT = []
@@ -155,6 +156,9 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+
+    if hasattr(imported_module, "__lovely_basic__") and imported_module.__lovely_basic__:
+        LOVELY_BASIC[imported_module.__mod_name__.lower()] = imported_module
 
     # Chats to migrate on chat_migrated events
     if hasattr(imported_module, "__migrate__"):
@@ -402,9 +406,9 @@ def lovelybasic_button(update, context):
             module = mod_match.group(1)
             text = (
                 "Here is the help for the *{}* module:\n".format(
-                    HELPABLE[module].__mod_name__
+                    LOVELY_BASIC[module].__mod_name__
                 )
-                + HELPABLE[module].__lovely_basic__
+                + LOVELY_BASIC[module].__lovely_basic__
             )
             query.message.edit_text(
                 text=text,
@@ -424,7 +428,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1, BASICCMD, "lovelybasic")
+                    paginate_modules(curr_page - 1, LOVELY_BASIC, "lovelybasic")
                 ),
             )
 
@@ -434,7 +438,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1, BASICCMD, "lovelybasic")
+                    paginate_modules(next_page + 1, LOVELY_BASIC, "lovelybasic")
                 ),
             )
 
@@ -443,7 +447,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, BASICCMD, "lovelybasic")
+                    paginate_modules(0, LOVELY_BASIC, "lovelybasic")
                 ),
             )
 
