@@ -512,7 +512,7 @@ def lovelyadvance_button(update, context):
                 reply_markup=InlineKeyboardMarkup(
                   [
                     [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
-                    [InlineKeyboardButton(text="Go back", callback_data="lovelybasic_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelyadvance_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
                   ]
                 ),
             )
@@ -539,10 +539,10 @@ def lovelyadvance_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=LOVELY_BASICC,
+                text=LOVELY_ADVANCEE,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, LOVELY_BASIC, "lovelybasic")
+                    paginate_modules(0, LOVELY_ADVANCE, "lovelyadvance")
                 ),
             )
 
