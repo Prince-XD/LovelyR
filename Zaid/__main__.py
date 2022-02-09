@@ -426,7 +426,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1, HELPABLE, "lovelybasic")
+                    paginate_modules(curr_page - 1, LOVELYBASIC, "lovelybasic")
                 ),
             )
 
@@ -436,7 +436,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1, HELPABLE, "lovelybasic")
+                    paginate_modules(next_page + 1, LOVELYBASIC, "lovelybasic")
                 ),
             )
 
@@ -445,7 +445,7 @@ def lovelybasic_button(update, context):
                 text=LOVELY_BASIC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, HELPABLE, "lovelybasic")
+                    paginate_modules(0, LOVELYBASIC, "lovelybasic")
                 ),
             )
 
