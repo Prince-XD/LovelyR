@@ -116,17 +116,6 @@ def revert_buttons(buttons):
     return res
 
 
-def revert_buttons(buttons):
-    res = ""
-    for btn in buttons:
-        if btn.tush_line:
-            res += "\n[{}](buttonurl://{}:tush)".format(btn.name, btn.url)                  
-        else:
-            res += "\n[{}](buttonurl://{})".format(btn.name, btn.url)
-
-    return res
-
-
 def build_keyboard_parser(bot, chat_id, buttons):
     keyb = []
     for btn in buttons:
