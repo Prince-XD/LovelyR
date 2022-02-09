@@ -179,7 +179,7 @@ for module_name in ALL_MODULES:
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
     if hasattr(imported_module, "__lovely_basic__") and imported_module.__lovely_basic__:
-        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+        LOVELYBASIC[imported_module.__mod_name__.lower()] = imported_module
 
 
 # do not async
