@@ -947,7 +947,7 @@ __help__ = """
 ❂ /clearrules*:* clear the rules for this chat.
 """
 
-__basic__ = __help__
+__lovely_basic__ = __help__
 
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True)
 SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.chat_type.groups, run_async=True)
