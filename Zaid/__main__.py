@@ -392,7 +392,7 @@ def help_button(update, context):
 
 def lovelybasic_button(update, context):
     query = update.callback_query
-    mod_match = re.match(r"_module\((.+?)\)", query.data)
+    mod_match = re.match(r"lovelybasic_module\((.+?)\)", query.data)
     prev_match = re.match(r"lovelybasic_prev\((.+?)\)", query.data)
     next_match = re.match(r"lovelybasic_next\((.+?)\)", query.data)
     back_match = re.match(r"lovelybasic_back", query.data)
