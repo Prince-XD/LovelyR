@@ -102,12 +102,12 @@ Click on help to learn more and Join @Lovelyappeal for report bugs!
 Lovelybuttons = [
      [
         InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_"),
+        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_tutorials"),
         InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),         
      ],
      [  
         InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
-        InlineKeyboardButton(text="Help", callback_data="emiko_"),
+        InlineKeyboardButton(text="Help", callback_data="lovelyx_"),
         InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
      ], 
      [
@@ -169,7 +169,7 @@ LOVELY_CMDS =  [
        ],      
        [
            InlineKeyboardButton(text="Fun and extra", callback_data="lovelyx_fe"),
-           InlineKeyboardButton(text="Back", callback_data="emiko_back"),
+           InlineKeyboardButton(text="Back", callback_data="lovelyx_back"),
            InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
        ],
 ]
@@ -294,7 +294,7 @@ def start(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Explore here", callback_data="emiko_back"
+                            text="Explore here", callback_data="lovelyx_back"
                         ),
                     ],
                 ]
