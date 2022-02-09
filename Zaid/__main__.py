@@ -1009,7 +1009,7 @@ def get_basic(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=None,
-
+      )
             return
         update.effective_message.reply_text(
             "Use below buttons to explore features or to close menu",
