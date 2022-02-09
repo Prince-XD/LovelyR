@@ -219,3 +219,4 @@ __help__ = """ This is help menu for logomaker
 
 ❂  /edit <reply photo> - to edit image.
 """
+__lovely_advance__ = __help__
