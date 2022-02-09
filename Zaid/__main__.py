@@ -128,21 +128,51 @@ LOVELY_HELP = """
 
 LOVELY_BASICC = """This are some *Basic commands* which will help you to manage group easily by Lovely"""
 
+LOVELY_ADVANCEE = """*Advanced commands*
+Advanced commands will help you to secure your group easily and also you will know here some awesome features"""
+
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @TUSHAR204 \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
+LOVELY_HELPX = """Hey there! My name is *Lovely 🇮🇳*
+I'm a Queen For Fun and help admins manage their groups! 
+Have a look at the following for an idea of some of the things I can help you with.
+*Main commands available:*
+ • /help: PM's you this message and also you can use this in group
+ • /help <module name>: PM's you info about that module.
+ • /settings:
+   • in PM: will send you your settings for all supported modules.
+   • in a group: will redirect you to pm, with all that chat's settings.
+
+All commands can either be used with / or !.
+And the following:"""
+
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
 LOVELY_BASIC = {}
+LOVELY_ADVANCE = {}
 STATS = []
 USER_INFO = []
 DATA_IMPORT = []
 DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
+
+LOVELY_CMDS =  [
+       [
+           InlineKeyboardButton(text="Basic", callback_data="lovelybasic_back"),
+           InlineKeyboardButton(text="All", callback_data="help_back"),
+           InlineKeyboardButton(text="Advanced", callback_data="lovelyadvance_back"),
+       ],      
+       [
+           InlineKeyboardButton(text="Fun and extra", callback_data="lovelyx_fe"),
+           InlineKeyboardButton(text="Back", callback_data="emiko_back"),
+           InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
+       ],
+]
 
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("Zaid.modules." + module_name)
@@ -159,6 +189,9 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__lovely_basic__") and imported_module.__lovely_basic__:
         LOVELY_BASIC[imported_module.__mod_name__.lower()] = imported_module
+ 
+    if hasattr(imported_module, "__lovely_advance__") and imported_module.__lovely_advance__:
+        LOVELY_ADVANCE[imported_module.__mod_name__.lower()] = imported_module
 
     # Chats to migrate on chat_migrated events
     if hasattr(imported_module, "__migrate__"):
@@ -454,40 +487,80 @@ def lovelybasic_button(update, context):
     except BadRequest:
         pass
 
-def emiko_about_callback(update, context):
+def lovelyadvance_button(update, context):
     query = update.callback_query
-    if query.data == "emiko_":
-        query.message.edit_text(
-       text="""Hey there! My name is *Lovely 🇮🇳*
-I'm a Queen For Fun and help admins manage their groups! 
-Have a look at the following for an idea of some of the things I can help you with.
-*Main commands available:*
- • /help: PM's you this message and also you can use this in group
- • /help <module name>: PM's you info about that module.
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
+    mod_match = re.match(r"lovelyadvance_module\((.+?)\)", query.data)
+    prev_match = re.match(r"lovelyadvance_prev\((.+?)\)", query.data)
+    next_match = re.match(r"lovelyadvance_next\((.+?)\)", query.data)
+    back_match = re.match(r"lovelyadvance_back", query.data)
 
-All commands can either be used with / or !.
-And the following:""",
-            parse_mode=ParseMode.MARKDOWN,
+    print(query.message.chat.id)
+
+    try:
+        if mod_match:
+            module = mod_match.group(1)
+            text = (
+                "Here is the help for the *{}* module:\n".format(
+                    LOVELY_ADVANCE[module].__mod_name__
+                )
+                + LOVELY_ADVANCE[module].__lovely_advance__
+            )
+            query.message.edit_text(
+                text=text,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                  [
+                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelybasic_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                  ]
+                ),
+            )
+
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
+            query.message.edit_text(
+                text=LOVELY_ADVANCEE,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(curr_page - 1, LOVELY_ADVANCE, "lovelyadvance")
+                ),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.edit_text(
+                text=LOVELY_ADVANCEE,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, LOVELY_ADVANCE, "lovelyadvance")
+                ),
+            )
+
+        elif back_match:
+            query.message.edit_text(
+                text=LOVELY_BASICC,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, LOVELY_BASIC, "lovelybasic")
+                ),
+            )
+
+    except BadRequest:
+        pass
+
+def lovelyx_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "lovelyx_":
+        query.message.edit_text(
+            text=LOVELY_HELPX,
+        parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Basic", callback_data="lovelybasic_back"),
-                    InlineKeyboardButton(text="All", callback_data="help_back"),
-                    InlineKeyboardButton(text="Advanced", callback_data="lovelyx_advance"),
-                 ],      
-                 [
-                    InlineKeyboardButton(text="Fun and extra", callback_data="lovelyx_fe"),
-                    InlineKeyboardButton(text="Back", callback_data="emiko_back"),
-                    InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
-                 ]
-               ]
+                LOVELY_CMDS
             ),
         )
-    elif query.data == "emiko_back":
+    elif query.data == "lovelyx_back":
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
@@ -502,10 +575,7 @@ And the following:""",
                 disable_web_page_preview=False,
         )
 
-
-def lovelyx_about_callback(update, context):
-    query = update.callback_query
-    if query.data == "lovelyx_":
+    elif query.data == "lovelyx_tutorials":
         query.message.edit_text(
             text="Hi I'm Lovely, one of the fastest and most features for your groups"
                  "\n\nYou can also Play Music groups by using me!",
@@ -526,20 +596,8 @@ def lovelyx_about_callback(update, context):
                 ]
             ),
         )
-    elif query.data == "lovelyx_back":
-        first_name = update.effective_user.first_name
-        uptime = get_readable_time((time.time() - StartTime))
-        query.message.edit_text(
-                LOVELY_MENU.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(Lovelybuttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-        )
+
+
     elif query.data == "lovelyx_pro":
         query.message.edit_text(
             text="""<b>Hey, Welcome to Lovely configuration Tutorial
@@ -549,7 +607,7 @@ Before we go, I need admin permissions in this chat to work properly
 3) Giving full permissions make Lovely fully useful</b>""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="previous", callback_data="lovelyx_"),
+              [[InlineKeyboardButton(text="previous", callback_data="lovelyx_tutorials"),
                 InlineKeyboardButton(text="next", callback_data="lovelyx_help")],               
               ]
             ),
@@ -654,446 +712,8 @@ Again thanks for using me
         query.message.reply_video(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
-            ),
+            )
 
-    elif query.data == "lovelyx_admin":
-        query.message.edit_text(
-            text="""Here is the help for the Admins module:
-
-User Commands:
-❂ /admins: list of admins in the chat
-❂ /pinned: to get the current pinned message.
-The Following Commands are Admins only: 
-❂ /pin: silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
-❂ /unpin: unpins the currently pinned message
-❂ /invitelink: gets invitelink
-❂ /promote: promotes the user replied to
-❂ /fullpromote: promotes the user replied to with full rights
-❂ /demote: demotes the user replied to
-❂ /title <title here>: sets a custom title for an admin that the bot promoted
-❂ /admincache: force refresh the admins list
-❂ /del: deletes the message you replied to
-❂ /purge: deletes all messages between this and the replied to message.
-❂ /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
-
-Rules:
-❂ /rules: get the rules for this chat.
-❂ /setrules <your rules here>: set the rules for this chat.
-❂ /clearrules: clear the rules for this chat.""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_bansmute":
-        query.message.edit_text(
-            text="""Here is the help for the Bans/Mutes module:
-
-*User Commands:*
-
-❂ /kickme: kicks the user who issued the command
-
-*Admins only:*
-
-❂ /ban <userhandle>: bans a user. (via handle, or reply)
-❂ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
-❂ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unban <userhandle>: unbans a user. (via handle, or reply)
-❂ /kick <userhandle>: kicks a user out of the group, (via handle, or reply)
-❂ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
-❂ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
-❂ /zombies: searches deleted accounts
-❂ /zombies clean: removes deleted accounts from the group.
-❂ /snipe <chatid> <string>: Make me send a message to a specific chat.""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_disable":
-        query.message.edit_text(
-            text="""Here is the help for the Disabling module:
-
-❂ /cmds: check the current status of *disabled* commands
-
-*Admins only:*
-
-❂ /enable <cmd name>: enable that command
-❂ /disable <cmd name>: disable that command
-❂ /enablemodule <module name>: enable all commands in that module
-❂ /disablemodule <module name>: disable all commands in that module
-❂ /listcmds: list all possible toggleable commands""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_fsubfed":
-        query.message.edit_text(
-            text="""Here is the help for the F-Sub/Feds module:
-
-*Force Subscribe:*
-
-❂ Lovely can mute members who are not subscribed your channel until they subscribe
-❂ When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them
-❂Setup
-Only creator
-❂ Add me in your group as admin
-❂ Add me in your channel as admin 
- 
-Commmands
-❂ /fsub {channel username} - To turn on and setup the channel.
-
-  💡Do this first...
-
-❂ /fsub - To get the current settings.
-❂ /fsub disable - To turn of ForceSubscribe..
-
-  💡If you disable fsub, you need to set again for working.. /fsub {channel username} 
-
-❂ /fsub clear - To unmute all members who muted by me.
-
-*Federation*
-Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
-But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
-
-No longer! With Federation, you can make a ban in one chat overlap with all other chats.
-
-You can even designate federation admins, so your trusted admin can ban all the spammers from chats you want to protect.
-
-*Commands:*
-
-Feds are now divided into 3 sections for your ease.
-• `/fedownerhelp`: Provides help for fed creation and owner only commands
-• `/fedadminhelp`: Provides help for fed administration commands
-• `/feduserhelp`: Provides help for commands anyone can use""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_blacklists":
-        query.message.edit_text(
-            text="""Here is the help for the Blacklists module:
-
-
-Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
-
-*NOTE: Blacklists do not affect group admins.*
-
-❂ /blacklist: View the current blacklisted words.
-
-*Admin only:*
-❂ /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
-❂ /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-❂ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
-
-Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
-NOTE: Blacklist stickers do not affect the group admin
-❂ /blsticker: See current blacklisted sticker
-Only admin:
-❂ /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
-❂ /unblsticker <sticker link>: Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once
-❂ /rmblsticker <sticker link>: Same as above
-❂ /blstickermode <delete/ban/tban/mute/tmute>: sets up a default action on what to do if users use blacklisted stickers
-Note:
-❂ <sticker link> can be `https://t.me/addstickers/<sticker> or just <sticker>` or reply to the sticker message""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_filters":
-        query.message.edit_text(
-            text="""Here is the help for the Filters module:
-
-❂ /filters*:* List all active filters saved in the chat.
-*Admin only:*
-❂ /filter <keyword> <reply message>*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
-is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
-keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
-doin?
- Separate diff replies by `%%%` to get random replies
- *Example:* 
- `/filter "filtername"
- Reply 1
- %%%
- Reply 2
- %%%
- Reply 3`
-❂ /stop <filter keyword>*:* Stop that filter.
-*Chat creator only:*
-❂ /removeallfilters*:* Remove all chat filters at once.
-*Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-Check /markdownhelp to know more!""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-#🔥🔥🔥🔥🔥🔥
-    elif query.data == "lovelyx_basic":
-        query.message.edit_text(
-            text="""This are some *Basic commands* which will help you to manage group easily by Lovely""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Admins", callback_data="lovelyx_admin"),
-                    InlineKeyboardButton(text="Bans/mute", callback_data="lovelyx_bansmute"),
-                    InlineKeyboardButton(text="Disabling", callback_data="lovelyx_disable"),
-                 ],      
-                 [
-                    InlineKeyboardButton(text="Filters", callback_data="lovelyx_filters"),
-                    InlineKeyboardButton(text="Fsub/Feds", callback_data="lovelyx_fsubfed"),
-                    InlineKeyboardButton(text="Greetings", callback_data="lovelyx_greetings"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Group", callback_data="lovelyx_group"),
-                    InlineKeyboardButton(text="Locks", callback_data="lovelyx_locks"),
-                    InlineKeyboardButton(text="Rules", callback_data="lovelyx_rules"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Advance", callback_data="lovelyx_advance"),
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                    InlineKeyboardButton(text="Fun & Extra", callback_data="lovelyx_fe"),
-                 ]
-                ]
-            ),
-        )
-
-    elif query.data == "lovelyx_greetings":
-        query.message.edit_text(
-            text="""Here is the help for the *Greetings* module:
-
-*Admins only:*
-❂ /welcome <on/off>: enable/disable welcome messages.
-❂ /welcome: shows current welcome settings.
-❂ /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!
-❂ /goodbye: same usage and args as /welcome.
-❂ /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media.
-❂ /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media.
-❂ /resetwelcome: reset to the default welcome message.
-❂ /resetgoodbye: reset to the default goodbye message.
-❂ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
-❂ /welcomemutehelp: gives information about welcome mutes.
-❂ /cleanservice <on/off: deletes telegrams welcome/left service messages.
- Example:
-user joined chat, user left chat.
-Welcome markdown:
-❂ /welcomehelp: view more formatting information for custom welcome/goodbye messages.""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_group":
-        query.message.edit_text(
-            text="""Here is the help for the *Group* module:
-
-*Admins only:*
-❂ /setgtitle <text>: set group title
-❂ /setgpic: reply to an image to set as group photo
-❂ /setdesc: Set group description
-❂ /setsticker: Set group sticker""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_locks":
-        query.message.edit_text(
-            text="""Here is the help for the *Locks* module:
-
-Do stickers annoy you? or want to avoid people sharing links? or pictures? You're in the right place!
-The locks module allows you to lock away some common items in the telegram world; the bot will automatically delete them!
-
-❂ /locktypes: Lists all possible locktypes
-
-*Admins only:*
-
-❂ /lock <type>: Lock items of a certain type (not available in private)
-❂ /unlock <type>: Unlock items of a certain type (not available in private)
-❂ /locks: The current list of locks in this chat.
-
-Locks can be used to restrict a group's users.
-eg:
-Locking urls will auto-delete all messages with urls, locking stickers will restrict all non-admin users from sending stickers, etc.
-Locking bots will stop non-admins from adding bots to the chat.
-
-*Note:*
-❂ Unlocking permission info will allow members (non-admins) to change the group information, such as the description or the group name
-❂ Unlocking permission pin will allow members (non-admins) to pinned a message in a group""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_rules":
-        query.message.edit_text(
-            text="""Here is the help for the *Rules* module:
-*Rules:*
-❂ /rules: get the rules for this chat.
-❂ /setrules <your rules here>: set the rules for this chat.
-❂ /clearrules: clear the rules for this chat.""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_basic")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_tagalert":
-        query.message.edit_text(
-            text="""Here is help for the *Tagalert* module:
-
-If anyone tagged/mentioned in a group where Lovely is present
-Lovely will notify it to you in private message after enabling tag alerts
-
-*How to use this feature ?*
-❂ `/tagalert on` : Turn tag alerts on
-❂ `/tagalert off` : Turn tag alerts off""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_logo":
-        query.message.edit_text(
-            text="""Here is the help for the *Logomaker* module:
- This is help menu for logomaker
-
-❂ /logo <text/name> - Create a logo with random view.
-❂ /wlogo <text/name> - Create a logo with wide view only.
-
- Image Editor :
-
-❂  /edit <reply photo> - to edit image.""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_search":
-        query.message.edit_text(
-            text="""Here is the help for the *Search* module:
-
-❂ /google <query>: Perform a google search
-❂ /image <query>: Search Google for images and returns them
-For greater no. of results specify lim, For eg: /img hello lim=10
-❂ /app <appname>: Searches for an app in Play Store and returns its details.
-❂ /reverse: Does a reverse image search of the media which it was replied to.
-❂ /gps <location>: Get gps location.
-❂ /github <username>: Get information about a GitHub user.
-❂ /country <country name>: Gathering info about given country
-❂ /imdb <Movie name>: Get full info about a movie with imdb.com""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_logch":
-        query.message.edit_text(
-            text="""Here is the help for the *Log Channel​* module:
-
-  *Log channel*
-
-❂ /logchannel: get log channel info
-❂ /setlog: set the log channel.
-❂ /unsetlog: unset the log channel.
-
-Setting the log channel is done by:
-
-➩ adding the bot to the desired channel (as an admin!)
-➩ sending /setlog in the channel
-➩ forwarding the /setlog to the group""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_trans":
-        query.message.edit_text(
-            text="""Here is the help for the Translator module:
- 
-Use this module to translate stuff!
-Commands:
-❂ /tl (or /tr): as a reply to a message, translates it to English.
-❂ /tl <lang>: translates to <lang>
-eg: /tl ja: translates to Japanese.
-❂ /tl <source>//<dest>: translates from <source> to <lang>.
-eg:  /tl ja//en: translates from Japanese to English.
-❂ /langs: get a list of supported languages for translation.
-
-I can convert text to voice and voice to text..
-❂ /tts <lang code>: Reply to any message to get text to speech output
-❂ /stt: Type in reply to a voice message(support english only) to extract text from it.
-Language Codes
-`af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
-et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
-id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,
-ml,mn,mr,ms,mt,my,ne,nl,no,ny,pa,pl,ps,pt,ro,ru,sd,si,sk,sl,
-sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,
-vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_advance")]]
-            ),
-        )
-
-    elif query.data == "lovelyx_advance":
-        query.message.edit_text(
-            text="""*Advanced commands*
-Advanced commands will help you to secure your group easily and also you will know here some awesome features""",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Logomaker", callback_data="lovelyx_logo"),
-                    InlineKeyboardButton(text="Log channels", callback_data="lovelyx_logch"),
-                    InlineKeyboardButton(text="Search", callback_data="lovelyx_search"),
-                 ],      
-                 [
-                    InlineKeyboardButton(text="Tagalert", callback_data="lovelyx_tagalert"),   
-                    InlineKeyboardButton(text="Translator", callback_data="lovelyx_trans"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Basic", callback_data="lovelyx_basic"),
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                    InlineKeyboardButton(text="Fun & Extra", callback_data="lovelyx_fe"),
-                 ]
-                ]
-            ),
-        )
 
     elif query.data == "lovelyx_info":
         query.message.edit_text(
@@ -1686,14 +1306,16 @@ def main():
         lovelybasic_button, pattern=r"lovelybasic_.*", run_async=True
     )
 
+    lovelyadvance_handler = CommandHandler("lovelyadvance", test, run_async=True)
+    lovelyadvance_callback_handler = CallbackQueryHandler(
+        lovelyadvance_button, pattern=r"lovelyadvance_.*", run_async=True
+    )
+
     settings_handler = CommandHandler("settings", get_settings, run_async=True)
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_", run_async=True
     )
 
-    about_callback_handler = CallbackQueryHandler(
-        emiko_about_callback, pattern=r"emiko_", run_async=True
-    )
 
     lovelyx_callback_handler = CallbackQueryHandler(
         lovelyx_about_callback, pattern=r"lovelyx_", run_async=True
@@ -1708,7 +1330,7 @@ def main():
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(lovelybasic_handler)
-    dispatcher.add_handler(about_callback_handler)
+    dispatcher.add_handler(lovelyadvance_handler)
     dispatcher.add_handler(lovelyx_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
