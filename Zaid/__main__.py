@@ -126,6 +126,8 @@ LOVELY_HELP = """
 𖣘 *If you facing any issue or find any bugs in any command then you can report it in @LOVELYAPPEAL* .
 """
 
+LOVELY_BASIC = """This are some *Basic commands* which will help you to manage group easily by Lovely"""
+
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @TUSHAR204 \
  Supporting isnt always financial! \
@@ -1677,7 +1679,7 @@ def main():
         help_button, pattern=r"help_.*", run_async=True
     )
 
-    lovelybasic_handler = CommandHandler("lovelybasic", run_async=True)
+    lovelybasic_handler = CommandHandler("lovelybasic", lovelybasic, run_async=True)
     lovelybasic_callback_handler = CallbackQueryHandler(
         lovelybasic_button, pattern=r"lovelybasic_.*", run_async=True
     )
