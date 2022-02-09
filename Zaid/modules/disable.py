@@ -349,6 +349,8 @@ if is_module_loaded(FILENAME):
 
     __mod_name__ = "Disabling"
 
+__lovely_basic__ = __help__
+
 else:
     DisableAbleCommandHandler = CommandHandler
     DisableAbleRegexHandler = RegexHandler
