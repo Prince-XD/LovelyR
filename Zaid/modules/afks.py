@@ -7,4 +7,4 @@ When marked as AFK, any mentions will be replied to with a message stating that 
 
 __lovely_basic = __help__
 
-__mod_name__ "Afk"
+__mod_name__ = "Afk"
