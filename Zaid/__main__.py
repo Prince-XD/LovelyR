@@ -178,9 +178,12 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
+  for module_name in BASE_MODULES:
+    imported_base = importlib.import_module("Zaid.base." + module_name)
     if hasattr(imported_module, "__lovely_basic__") and imported_module.__lovely_basic__:
         LOVELYBASIC[imported_module.__mod_name__.lower()] = imported_module
-
+    if hasattr(imported_module, "__help__") and imported_module.__help__:
+        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
 
 # do not async
 def send_help(chat_id, text, keyboard=None):
