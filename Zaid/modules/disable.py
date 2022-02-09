@@ -328,7 +328,6 @@ if is_module_loaded(FILENAME):
 ❂ /disablemodule <module name>*:* disable all commands in that module
 ❂ /listcmds*:* list all possible toggleable commands
 """
-   __lovely_basic__ = __help__
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
     DISABLE_MODULE_HANDLER = CommandHandler(
