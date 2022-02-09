@@ -126,7 +126,7 @@ LOVELY_HELP = """
 𖣘 *If you facing any issue or find any bugs in any command then you can report it in @LOVELYAPPEAL* .
 """
 
-LOVELY_BASIC = """This are some *Basic commands* which will help you to manage group easily by Lovely"""
+LOVELY_BASICC = """This are some *Basic commands* which will help you to manage group easily by Lovely"""
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @TUSHAR204 \
@@ -425,7 +425,7 @@ def lovelybasic_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=LOVELY_BASIC,
+                text=LOVELY_BASICC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, LOVELY_BASIC, "lovelybasic")
@@ -435,7 +435,7 @@ def lovelybasic_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
-                text=LOVELY_BASIC,
+                text=LOVELY_BASICC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, LOVELY_BASIC, "lovelybasic")
@@ -444,7 +444,7 @@ def lovelybasic_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=LOVELY_BASIC,
+                text=LOVELY_BASICC,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, LOVELY_BASIC, "lovelybasic")
