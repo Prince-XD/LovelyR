@@ -243,7 +243,7 @@ def start(update: Update, context: CallbackContext):
     if update.effective_chat.type == "private":
         if len(args) >= 1:
             if args[0].lower() == "help":
-                send_help(update.effective_chat.id, HELP_STRINGS)
+                send_help(update.effective_chat.id, LOVELY_HELP)
             elif args[0].lower().startswith("ghelp_"):
                 mod = args[0].lower().split("_", 1)[1]
                 if not HELPABLE.get(mod, False):
@@ -998,6 +998,44 @@ For any query join @LOVELYAPPEAL""",
 
 #🤣🤣🤣🤣
 
+def get_basic(update: Update, context: CallbackContext):
+    args = context.args
+    uptime = get_readable_time((time.time() - StartTime))
+    if update.effective_chat.type == "private":
+        if len(args) >= 1:
+            if args[0].lower() == "help":
+                send_help(update.effective_chat.id, LOVELY_BASICC)
+            elif args[0].lower().startswith("ghelp_"):
+                mod = args[0].lower().split("_", 1)[1]
+                if not LOVELY_BASIC.get(mod, False):
+                    return
+                send_help(
+                    update.effective_chat.id,
+                    LOVELY_BASIC[mod].__lovely_basic__,
+                    InlineKeyboardMarkup(
+                        [[InlineKeyboardButton(text="Go Back", callback_data="lovelybasic_back")]]
+                    ),
+                )
+
+            
+    else:
+        update.effective_message.reply_text(
+            "Click on Basic commands",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Basic commands", callback_data="lovelybasic_back")
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Menu", callback_data="lovelyx_back"
+                        ),
+                    ],
+                ]
+            ),
+        )
+
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -1301,7 +1339,7 @@ def main():
         help_button, pattern=r"help_.*", run_async=True
     )
 
-    lovelybasic_handler = CommandHandler("lovelybasic", test, run_async=True)
+    lovelybasic_handler = CommandHandler("lovelybasic", basic, run_async=True)
     lovelybasic_callback_handler = CallbackQueryHandler(
         lovelybasic_button, pattern=r"lovelybasic_.*", run_async=True
     )
