@@ -633,6 +633,8 @@ Check /markdownhelp to know more!
 
 __mod_name__ = "Filters"
 
+__lovely_basic__ = __help__
+
 FILTER_HANDLER = CommandHandler("filter", filters)
 STOP_HANDLER = CommandHandler("stop", stop_filter)
 RMALLFILTER_HANDLER = CommandHandler(
