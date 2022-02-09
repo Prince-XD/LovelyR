@@ -999,42 +999,36 @@ For any query join @LOVELYAPPEAL""",
 #🤣🤣🤣🤣
 
 def get_basic(update: Update, context: CallbackContext):
-    args = context.args
-    uptime = get_readable_time((time.time() - StartTime))
-    if update.effective_chat.type == "private":
-        if len(args) >= 1:
-            if args[0].lower() == "help":
-                send_help(update.effective_chat.id, LOVELY_BASICC)
-            elif args[0].lower().startswith("ghelp_"):
-                mod = args[0].lower().split("_", 1)[1]
-                if not LOVELY_BASIC.get(mod, False):
-                    return
-                send_help(
-                    update.effective_chat.id,
-                    LOVELY_BASIC[mod].__lovely_basic__,
-                    InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="Go Back", callback_data="lovelybasic_back")]]
-                    ),
-                )
+    chat = update.effective_chat  # type: Optional[Chat]
+    args = update.effective_message.text.split(None, 1)
 
-            
-    else:
+    # ONLY send help in PM
+    if chat.type != chat.PRIVATE:
+        if len(args) >= 2 and any(args[1].lower() == x for x in LOVELY_BASIC):
+            module = args[1].lower()
+            update.effective_message.reply_text(
+                f"Contact me in PM to get help of {module.capitalize()}",
+                reply_markup=None,
+
+            return
         update.effective_message.reply_text(
-            "Click on Basic commands",
+            "Use below buttons to explore features or to close menu",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Basic commands", callback_data="lovelybasic_back")
+                            text="Basic commands", callback_data="lovelybasic_back"
+                        ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Menu", callback_data="lovelyx_back"
+                            text="Close menu", callback_data="stngs_back"
                         ),
-                    ],
+                    ],               
                 ]
             ),
         )
+
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
