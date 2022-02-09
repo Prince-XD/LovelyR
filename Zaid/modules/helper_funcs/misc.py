@@ -110,6 +110,16 @@ def revert_buttons(buttons):
     for btn in buttons:
         if btn.same_line:
             res += "\n[{}](buttonurl://{}:same)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same1)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same2)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same3)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same4)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same5)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same6)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same7)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same8)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same9)".format(btn.name, btn.url)
+            res += "\n[{}](buttonurl://{}:same10)".format(btn.name, btn.url)      
         else:
             res += "\n[{}](buttonurl://{})".format(btn.name, btn.url)
 
