@@ -781,8 +781,7 @@ Again thanks for using me
             ),
     
         )
-            query.delete()
-
+            
     
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
