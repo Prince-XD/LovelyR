@@ -447,11 +447,10 @@ def set_about_me(update: Update, context: CallbackContext):
 def stats(update: Update, context: CallbackContext):
     stats = "<b>╔═━「 Current Statistics 」</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    result += "\n<b>╘═━「 Powered By [ZAID](https://github.com/ITZ-ZAID)」</b>"
+    result += "\n<b>╘═━ Powered By [Tushar](https://github.com/attitudeking1)</b>"
     update.effective_message.reply_text(
         result,
         parse_mode=ParseMode.HTML, 
-        disable_web_page_preview=True
    )
         
         
