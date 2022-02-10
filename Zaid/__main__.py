@@ -201,7 +201,7 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__lovely_advance__") and imported_module.__lovely_advance__:
         LOVELY_ADVANCE[imported_module.__mod_name__.lower()] = imported_module
 
-   if hasattr(imported_module, "__lovely_tools__") and imported_module.__lovely_tools__:
+    if hasattr(imported_module, "__lovely_tools__") and imported_module.__lovely_tools__:
         LOVELY_TOOLS[imported_module.__mod_name__.lower()] = imported_module
 
     # Chats to migrate on chat_migrated events
