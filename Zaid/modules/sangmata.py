@@ -5,7 +5,7 @@ from Zaid import ubot2 as ubot
 from asyncio import TimeoutError
 
 
-@register(pattern="^/sg ?(.*)")
+@register(pattern="^/namehistory ?(.*)")
 async def lastname(steal):
     steal.pattern_match.group(1)
     puki = await steal.reply("```Retrieving Such User Information..```")
@@ -30,7 +30,7 @@ async def lastname(steal):
                 response = await conv.get_response()
             except YouBlockedUserError:
                 await steal.reply(
-                    "```Error, report to @kenbotsupport```"
+                    "```Error, report to @LOVELYAPPEAL```"
                 )
                 return
             if r.text.startswith("Name"):
@@ -56,3 +56,12 @@ async def lastname(steal):
             )
     except TimeoutError:
         return await puki.edit("`I'm Sick Sorry...`")
+
+___help___ = """
+*Name History*
+❂ /namehistory <reply>*:* To check history name
+"""
+
+__mod_name__ = "User-history"
+
+__lovely_tools__ = __help__
