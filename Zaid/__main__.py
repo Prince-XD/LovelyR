@@ -648,7 +648,7 @@ def lovelyx_about_callback(update, context):
         )
 
     elif query.data == "lovelyx_tutorials":
-        query.message.edit_text(
+        query.message.reply_text(
             text="Hi I'm Lovely, one of the fastest and most features for your groups"
                  "\n\nYou can also Play Music groups by using me!",
         parse_mode=ParseMode.MARKDOWN,
@@ -668,8 +668,8 @@ def lovelyx_about_callback(update, context):
                 ]
             ),
         )
-
-
+        query.message.delete()
+        
     elif query.data == "lovelyx_pro":
         query.message.edit_text(
             text="""<b>Hey, Welcome to Lovely configuration Tutorial
@@ -792,7 +792,7 @@ Again thanks for using me
             ),             
         )
         query.message.delete()
-           
+                  
 #🤣🤣🤣🤣
 
 def get_basic(update: Update, context: CallbackContext):
