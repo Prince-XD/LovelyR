@@ -784,8 +784,9 @@ Again thanks for using me
         query.message.reply_video(
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
+            query.message.delete(),
             )
-            query.message.delete()
+            
 
 #🤣🤣🤣🤣
 
