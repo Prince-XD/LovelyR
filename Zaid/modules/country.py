@@ -101,7 +101,7 @@ Time Zones:- {tom}
 Top Level Domain:- {lanester}
 wikipedia:- {wiki}</b>
 
-Gathered By @Timesisnotwaiting ✨.</b>
+Gathered By @Tushar204 ❤️.</b>
 """
 
     await borg.send_message(
@@ -111,3 +111,12 @@ Gathered By @Timesisnotwaiting ✨.</b>
     )
 
     await event.delete()
+
+__help__ """
+❂ /country <country name> *:* Get information of given country name
+   Example /country India
+"""
+
+__mod_name__ = "Country"
+
+__lovely_tools__ = __help__
