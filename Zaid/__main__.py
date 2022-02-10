@@ -785,6 +785,7 @@ Again thanks for using me
             LOVELYX_VIDAA,
             parse_mode=ParseMode.MARKDOWN,
             )
+            query.message.delete()
 
 #🤣🤣🤣🤣
 
