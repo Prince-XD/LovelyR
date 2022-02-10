@@ -576,6 +576,8 @@ def delsticker(update, context):
 
 __mod_name__ = "Stickers"
 
+__lovely_tools__ = __help__
+
 __help__ = """
 *Help menu for stickers tools*
 
@@ -586,7 +588,6 @@ __help__ = """
 ❂ /stickers*:* Find stickers for given term on combot sticker catalogue
 ❂ /tiny*:* To make small sticker
 ❂ /kamuii <1-8> *:* To deepefying stiker
-❂ /mmf <reply with text>*:* To draw a text for sticker or pohots
 """
 
 
