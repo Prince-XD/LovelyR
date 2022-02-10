@@ -379,6 +379,7 @@ dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __mod_name__ = "Fun"
+__lovely_tools__ = __help__
 __command_list__ = [
     "runs",
     "slap",
