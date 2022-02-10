@@ -452,8 +452,6 @@ def __stats__():
 
 __mod_name__ = "Blacklists"
 
-__lovely_basic__ = __help__
-
 __help__ = """
 
 Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
@@ -512,3 +510,4 @@ __handlers__ = [
     BLACKLISTMODE_HANDLER,
     (BLACKLIST_DEL_HANDLER, BLACKLIST_GROUP),
 ]
+__lovely_basic__ = __help__
