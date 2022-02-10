@@ -779,9 +779,9 @@ Again thanks for using me
                 [InlineKeyboardButton(text="back", callback_data="lovelyx_helpd"),
                 InlineKeyboardButton(text="Main menu", callback_data="lovelyx_")]]
             ),
-    query.message.delete()
-        )
     
+        )
+            query.message.delete()
     
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
