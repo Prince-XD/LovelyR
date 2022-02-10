@@ -576,8 +576,6 @@ def delsticker(update, context):
 
 __mod_name__ = "Stickers"
 
-__lovely_tools__ = __help__
-
 __help__ = """
 *Help menu for stickers tools*
 
@@ -589,7 +587,7 @@ __help__ = """
 ❂ /tiny*:* To make small sticker
 ❂ /kamuii <1-8> *:* To deepefying stiker
 """
-
+__lovely_tools__ = __help__
 
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid, run_async=True)
 GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker, run_async=True)
