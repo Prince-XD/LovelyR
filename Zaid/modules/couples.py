@@ -3,6 +3,6 @@ __help__ = """
 ❂ /couples - get couples of today
 """
 
-__mod_name = "Couples"
+__mod_name__ = "Couples"
 
-__lovely_tools = __help__
+__lovely_tools__ = __help__
