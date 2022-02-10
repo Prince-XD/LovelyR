@@ -1,7 +1,8 @@
 __help__ = """
-❂ /time <country code>*:* Gives information about a timezone.
+*Time*
+❂ /time <country code>: Gives information about a timezone.
 """
 
-__mod_name = "Times"
+__mod_name__ = "Times"
 
 __lovely_tools__ = __help__
