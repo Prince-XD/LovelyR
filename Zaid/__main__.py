@@ -783,11 +783,9 @@ Again thanks for using me
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
             LOVELYX_VIDAA,
-            parse_mode=ParseMode.MARKDOWN,
-            query.message.delete(),
+            parse_mode=ParseMode.MARKDOWN,            
             )
-            
-
+           
 #🤣🤣🤣🤣
 
 def get_basic(update: Update, context: CallbackContext):
