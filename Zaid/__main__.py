@@ -800,7 +800,7 @@ def get_basic(update: Update, context: CallbackContext):
                 f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=None,
       )
-           return
+            return
         update.effective_message.reply_text(
             "Use below buttons to explore features or to close menu",
             reply_markup=InlineKeyboardMarkup(
