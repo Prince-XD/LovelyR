@@ -112,7 +112,7 @@ Gathered By @Tushar204 ❤️.</b>
 
     await event.delete()
 
-__help__ """
+__help__ = """
 ❂ /country <country name> *:* Get information of given country name
    Example /country India
 """
