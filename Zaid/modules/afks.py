@@ -5,6 +5,6 @@ When marked as AFK, any mentions will be replied to with a message stating that 
   - brb <reason>: Same as the afk command, but not a command. 
 """
 
-__lovely_basic = __help__
+__lovely_tools = __help__
 
 __mod_name__ = "Afk"
