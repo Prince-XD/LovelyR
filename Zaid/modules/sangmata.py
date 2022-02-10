@@ -57,7 +57,7 @@ async def lastname(steal):
     except TimeoutError:
         return await puki.edit("`I'm Sick Sorry...`")
 
-___help___ = """
+__help__ = """
 *Name History*
 ❂ /namehistory <reply>*:* To check history name
 """
