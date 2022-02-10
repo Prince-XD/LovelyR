@@ -1,15 +1,6 @@
 __mod_name__ = "Tools"
 
 __help__ = """
-*Sangmata Info bot*
-❂ /sg <reply>*:* To check history name
-
-*Date-time-Weather*
-❂ /time <country code>*:* Gives information about a timezone.
-❂ /weather <city>*:* Get weather info in a particular place.
-❂ /wttr <city>*:* Advanced weather module, usage same as /weather
-❂ /wttr moon*:* Get the current status of moon
-
 *Converts*
 ❂ /encrypt*:* Encrypts The Given Text
 ❂ /decrypt*:* Decrypts Previously Ecrypted Text
@@ -28,10 +19,9 @@ Link To File:
  File To Link:
 ❂ /transfersh: reply to a telegram file to upload it on transfersh and get direct download link
 ❂ /tmpninja: reply to a telegram file to upload it on tmpninja and get direct download link
- File Or Text To Telegraph:
-❂ /tgm : Get Telegraph Link Of Replied Media
-❂ /tgt: Get Telegraph Link of Replied Text
-
+ 
  Tagger
 ❂ /tagall : for tag everyone at least 100 member first.
 """
+
+__lovely_tools__ = __help__
