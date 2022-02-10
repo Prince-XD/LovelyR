@@ -51,3 +51,12 @@ async def repo(_, message):
             ]
         )
     )
+
+
+__help__ = """
+❂ /carbon <text here> *:* get carbon of given text 
+"""
+
+__mod_name__ = "Carbon"
+
+__lovely_tools__ = __help__
