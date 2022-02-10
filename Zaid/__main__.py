@@ -775,9 +775,9 @@ Again thanks for using me
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Help", callback_data="emiko_")],
+                [[InlineKeyboardButton(text="Help", callback_data="lovelyx_")],
                 [InlineKeyboardButton(text="back", callback_data="lovelyx_helpd"),
-                InlineKeyboardButton(text="Main menu", callback_data="lovelyx_")]]
+                InlineKeyboardButton(text="Main menu", callback_data="lovelyx_tutorials")]]
             ),
     
         )
@@ -786,8 +786,11 @@ Again thanks for using me
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
             LOVELYX_VIDAA,
-            parse_mode=ParseMode.MARKDOWN,            
-            )
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="lovelyx_tutorials")]]
+            ),             
+        )
         query.message.delete()
            
 #🤣🤣🤣🤣
