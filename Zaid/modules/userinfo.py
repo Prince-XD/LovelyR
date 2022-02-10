@@ -315,8 +315,8 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1866203936:
-         text += "\n\nOwner Of A Bot. Queen Of @Timesisnotwaiting. Bot Name Inspired From 'Lydia'."
+    elif user.id == 1642113657:
+         text += "\n\nOwner Of A Bot. Queen Of @Tushar204."
          disaster_level_present = True
 
     try:
@@ -445,12 +445,13 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b>╔═━「 Current Statistics 」</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "<b>Current Statistics</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    result += "\n<b>╘═━ Powered By [Tushar](https://github.com/attitudeking1)</b>"
+    result += "\nPowered By [Tushar](https://github.com/attitudeking1)"
     update.effective_message.reply_text(
         result,
-        parse_mode=ParseMode.HTML, 
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True,
    )
         
         
@@ -500,7 +501,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only trust the Ackermans to set my bio.",
+                "Erm... yeah, I only trust the LovelyDevs to set my bio.",
             )
             return
 
