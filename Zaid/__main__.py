@@ -800,7 +800,7 @@ def get_basic(update: Update, context: CallbackContext):
                 f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=None,
       )
-            return
+           return
         update.effective_message.reply_text(
             "Use below buttons to explore features or to close menu",
             reply_markup=InlineKeyboardMarkup(
@@ -819,6 +819,68 @@ def get_basic(update: Update, context: CallbackContext):
             ),
         )
 
+
+def get_advance(update: Update, context: CallbackContext):
+    chat = update.effective_chat  # type: Optional[Chat]
+    args = update.effective_message.text.split(None, 1)
+
+    # ONLY send help in PM
+    if chat.type != chat.PRIVATE:
+        if len(args) >= 2 and any(args[1].lower() == x for x in LOVELY_ADVANCE):
+            module = args[1].lower()
+            update.effective_message.reply_text(
+                f"Contact me in PM to get help of {module.capitalize()}",
+                reply_markup=None,
+      )
+            return
+        update.effective_message.reply_text(
+            "Use below buttons to explore features or to close menu",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Advance commands", callback_data="lovelyadvance_back"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Close menu", callback_data="stngs_back"
+                        ),
+                    ],               
+                ]
+            ),
+        )
+
+def get_tools(update: Update, context: CallbackContext):
+    chat = update.effective_chat  # type: Optional[Chat]
+    args = update.effective_message.text.split(None, 1)
+
+    # ONLY send help in PM
+    if chat.type != chat.PRIVATE:
+        if len(args) >= 2 and any(args[1].lower() == x for x in LOVELY_TOOLS):
+            module = args[1].lower()
+            update.effective_message.reply_text(
+                f"Contact me in PM to get help of {module.capitalize()}",
+                reply_markup=None,
+      )
+            return
+        update.effective_message.reply_text(
+            "Use below buttons to explore features or to close menu",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Extra commands", callback_data="lovelytools_back"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Close menu", callback_data="stngs_back"
+                        ),
+                    ],               
+                ]
+            ),
+        )            
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -1128,12 +1190,12 @@ def main():
         lovelybasic_button, pattern=r"lovelybasic_.*", run_async=True
     )
 
-    lovelyadvance_handler = CommandHandler("lovelyadvance", test, run_async=True)
+    lovelyadvance_handler = CommandHandler("lovelyadvance", get_advance, run_async=True)
     lovelyadvance_callback_handler = CallbackQueryHandler(
         lovelyadvance_button, pattern=r"lovelyadvance_.*", run_async=True
     )
 
-    lovelytools_handler = CommandHandler("lovelytools", test, run_async=True)
+    lovelytools_handler = CommandHandler("lovelytools", get_tools, run_async=True)
     lovelytools_callback_handler = CallbackQueryHandler(
         lovelytools_button, pattern=r"lovelytools_.*", run_async=True
     )
