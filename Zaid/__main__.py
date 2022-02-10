@@ -780,6 +780,8 @@ Again thanks for using me
                 InlineKeyboardButton(text="Main menu", callback_data="lovelyx_")]]
             ),
         )
+    query.message.delete()
+    
     elif query.data == "lovelyx_vida":
         query.message.reply_video(
             LOVELYX_VIDAA,
