@@ -5,7 +5,7 @@ from pyrogram.types import (
 )
 import asyncio
 import tgcrypto
-from rose import app
+from Zaid import pbot as app
 from pyrogram.errors.exceptions import bad_request_400
 from pyrogram.errors import (
     FloodWait,
