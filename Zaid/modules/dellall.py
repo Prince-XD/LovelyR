@@ -1,14 +1,13 @@
 import asyncio
 from Zaid import ubot2 as app2
 from pyrogram.errors import UserAlreadyParticipant, FloodWait
-from Zaid import pbot as app 
-from Zaid.modules.admin import user_admin as adminsOnly 
+from Zaid import pbot as app  
 from pyrogram.types import  Message
 from pyrogram import filters
 #hee
 
 @app.on_message(filters.command("delall") & ~filters.edited)
-@adminsOnly("can_change_info")
+@user_admin("can_change_info")
 async def del_hee(client, message):
     # User admin check
     user = await app.get_chat_member(message.chat.id, message.from_user.id)
