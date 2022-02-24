@@ -1,7 +1,7 @@
 import asyncio
 from Zaid import ubot2 as app2
 from pyrogram.errors import UserAlreadyParticipant, FloodWait
-from Zaid import qbot as app 
+from Zaid import pbot as app 
 from Zaid.modules.admin import adminsOnly 
 from pyrogram.types import  Message
 from pyrogram import filters
