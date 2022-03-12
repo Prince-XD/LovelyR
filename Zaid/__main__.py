@@ -150,7 +150,7 @@ LOVELY_CMDS =  [
            InlineKeyboardButton(text="Advanced", callback_data="lovelyadvance_back"),
        ],      
        [
-           InlineKeyboardButton(text="Extra", callback_data="lovelytools_back"), 
+           InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_tutorials"),
            InlineKeyboardButton(text="Music Bot", callback_data="shikhar_"),           
        ],
        [ 
