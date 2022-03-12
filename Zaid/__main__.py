@@ -81,38 +81,16 @@ def get_readable_time(seconds: int) -> str:
 
 
 LOVELY_MENU = """
-Hi {}
-I'm Lovely group management/Music bot.
-
-I can do a variety of things, most common of em are:
-- Restrict users with ban permissions.
-- Greet users with media + text and buttons, with proper formatting.
-- Restrict users who flood your chat using my anti-flood module.
-- Warn users according to the options set and restrict em accordingly.
-- Save notes and filters with proper formatting and reply markup.
-- I can also Play Music in groups
-
-Theres even more! this is just the tip of the iceberg. Do note I need
-to be promoted with proper admin permissions to function properly. 
-Else I won't be able to function as said.
-
-Click on help to learn more and Join @Lovelyappeal for report bugs!
+Hey there! My name is Merissa.
+I can help manage your groups with useful features, feel free to add me to your groups!"
 """
 
 Lovelybuttons = [
      [
-        InlineKeyboardButton(text="Add Lovely", url="https://t.me/LOVELYR_OBOT?startgroup=true"),
-        InlineKeyboardButton(text="Tutorial", callback_data="lovelyx_tutorials"),
-        InlineKeyboardButton(text="Donate", url="t.me/TUSHAR204"),         
+        InlineKeyboardButton(text="➕️ 𝘼𝙙𝙙 𝙢𝙚 𝙩𝙤 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥 ➕️", url="https://t.me/merissarobot?startgroup=true"),       
      ],
-     [  
-        InlineKeyboardButton(text="Support", url="https://t.me/LOVELYAPPEAL"),
-        InlineKeyboardButton(text="Help", callback_data="lovelyx_"),
-        InlineKeyboardButton(text="Update", url="https://t.me/ABOUTVEDMAT"),
-     ], 
      [
-       InlineKeyboardButton(text="Music Bot", callback_data="shikhar_"),
-     ],
+        InlineKeyboardButton(text="❓ 𝘾𝙤𝙢𝙢𝙖𝙣𝙙 𝙃𝙚𝙡𝙥 ❗️", callback_data="lovelyx_")], 
 ]
 
 
@@ -120,13 +98,10 @@ LOVELYX_VIDAA = """https://telegra.ph/file/34f30bd06c6f62778f075.mp4"""
 
 
 LOVELY_HELP = """
-༆*Lovely comes with many special features in it*༆
-꧁*check all button below to explore every commands of lovely*꧂
-𖣘 *All commands can either be used with* `/` *or* `!`.
-𖣘 *If you facing any issue or find any bugs in any command then you can report it in @LOVELYAPPEAL* .
+Click on the button bellow to get description about specifics command
 """
 
-LOVELY_BASICC = """This are some *Basic commands* which will help you to manage group easily by Lovely"""
+LOVELY_BASICC = """This are some *Basic commands* which will help you to manage group easily by Merissa"""
 
 LOVELY_ADVANCEE = """*Advanced commands*
 Advanced commands will help you to secure your group easily and also you will know here some awesome features"""
@@ -168,17 +143,19 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 LOVELY_CMDS =  [
+       [ 
+           InlineKeyboardButton(text="All Commands", callback_data="help_back")],
        [
            InlineKeyboardButton(text="Basic", callback_data="lovelybasic_back"),           
            InlineKeyboardButton(text="Advanced", callback_data="lovelyadvance_back"),
        ],      
        [
-           InlineKeyboardButton(text="Extra", callback_data="lovelytools_back"),
-           InlineKeyboardButton(text="Inline", switch_inline_query_current_chat=""),
+           InlineKeyboardButton(text="Extra", callback_data="lovelytools_back"), 
+           InlineKeyboardButton(text="Music Bot", callback_data="shikhar_"),           
        ],
        [ 
-           InlineKeyboardButton(text="All Commands", callback_data="help_back"),
-           InlineKeyboardButton(text="Main menu", callback_data="lovelyx_back"),
+           InlineKeyboardButton(text="Extra", callback_data="lovelytools_back"), 
+           InlineKeyboardButton(text="Back", callback_data="lovelyx_back"),
        ],
 ]
 
