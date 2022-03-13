@@ -586,6 +586,7 @@ __help__ = """
 ❂ /stickers*:* Find stickers for given term on combot sticker catalogue
 ❂ /tiny*:* To make small sticker
 ❂ /kamuii <1-8> *:* To deepefying stiker
+❂ /mmf <reply with text>*:* To draw a text for sticker or photos
 """
 __lovely_tools__ = __help__
 
