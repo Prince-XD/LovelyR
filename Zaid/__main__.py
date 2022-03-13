@@ -109,14 +109,14 @@ Advanced commands will help you to secure your group easily and also you will kn
 LOVELY_EXTRA = """Fun tools and Extras
 Extra tools which are available in bot and tools made for fun are here
 You can choose an option below, by clicking a button.
-For any query join @LOVELYAPPEAL"""
+For any query join @Princexsupport"""
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @TUSHAR204 \
+ You can support the project by contacting @PrinceBots \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
-LOVELY_HELPX = """Hey there! My name is *Lovely 🇮🇳*
+LOVELY_HELPX = """Hey there! My name is *Merissa*
 I'm a Queen For Fun and help admins manage their groups! 
 Have a look at the following for an idea of some of the things I can help you with.
 *Main commands available:*
@@ -271,7 +271,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "*Lovely is alive* use below buttons to explore my features in group or pm!",
+            "*Merissa is alive* use below buttons to explore my features in group or pm!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -370,9 +370,8 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                  [
-                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
-                    [InlineKeyboardButton(text="Go back", callback_data="help_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                 [
+                    [InlineKeyboardButton(text="Go back", callback_data="help_back")]
                   ]
                 ),
             )
@@ -437,8 +436,8 @@ def lovelybasic_button(update, context):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                   [
-                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
-                    [InlineKeyboardButton(text="Go back", callback_data="lovelybasic_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                   
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelybasic_back")]
                   ]
                 ),
             )
@@ -499,8 +498,8 @@ def lovelyadvance_button(update, context):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                   [
-                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
-                    [InlineKeyboardButton(text="Go back", callback_data="lovelyadvance_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                   
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelyadvance_back")]
                   ]
                 ),
             )
@@ -560,8 +559,8 @@ def lovelytools_button(update, context):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                   [
-                    [InlineKeyboardButton(text="Updates", url="t.me/ABOUTVEDMAT"), InlineKeyboardButton(text="Support", url="t.me/LOVELYAPPEAL")],
-                    [InlineKeyboardButton(text="Go back", callback_data="lovelytools_back"), InlineKeyboardButton(text="Add Lovely", url="t.me/LOVELYR_OBOT?startgroup=true")]
+                   
+                    [InlineKeyboardButton(text="Go back", callback_data="lovelytools_back")]
                   ]
                 ),
             )
@@ -633,13 +632,13 @@ def lovelyx_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Add me to Group", url="t.me/LOVELYR_OBOT?startgroup=true"),
+                    InlineKeyboardButton(text="Add me to Group", url="t.me/merissarobot?startgroup=true"),
                  ],
                  [
                     InlineKeyboardButton(text="Video Tutorial", callback_data="lovelyx_vida"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="lovelyx_back"),
+                    InlineKeyboardButton(text="Back", callback_data="lovelyx_"),
                     InlineKeyboardButton(text="Next", callback_data="lovelyx_pro"),
                  ]
                 ]
@@ -649,15 +648,15 @@ def lovelyx_about_callback(update, context):
         
     elif query.data == "lovelyx_pro":
         query.message.edit_text(
-            text="""<b>Hey, Welcome to Lovely configuration Tutorial
+            text="""<b>Hey, Welcome to Merissa configuration Tutorial
 Before we go, I need admin permissions in this chat to work properly
 1) Click Manage Group
-2) Go to Administrators and add</b> @LOVELYR_OBOT <b>as Admin
+2) Go to Administrators and add</b> @MerissaRobot <b>as Admin
 3) Giving full permissions make Lovely fully useful</b>""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-              [[InlineKeyboardButton(text="previous", callback_data="lovelyx_tutorials"),
-                InlineKeyboardButton(text="next", callback_data="lovelyx_help")],               
+              [[InlineKeyboardButton(text="Previous", callback_data="lovelyx_tutorials"),
+                InlineKeyboardButton(text="Next", callback_data="lovelyx_help")],               
               ]
             ),
         )
@@ -678,8 +677,8 @@ Refer Help menu to see everything in detail*""",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="previous", callback_data="lovelyx_pro"),
-                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpc")]
+                [InlineKeyboardButton(text="Previous", callback_data="lovelyx_pro"),
+                 InlineKeyboardButton(text="Next", callback_data="lovelyx_helpc")]
                 ]
             ),
         )
@@ -699,8 +698,8 @@ Send /chatbot on and reply to any of my messages to see the magic""",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="previous", callback_data="lovelyx_helpb"),
-                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpd")]
+                [InlineKeyboardButton(text="Previous", callback_data="lovelyx_helpb"),
+                 InlineKeyboardButton(text="Next", callback_data="lovelyx_helpd")]
                 ]
             ),
         )
@@ -718,8 +717,8 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.""",
          parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
               [
-                [InlineKeyboardButton(text="previous", callback_data="lovelyx_helpc"),
-                 InlineKeyboardButton(text="next", callback_data="lovelyx_helpe")]
+                [InlineKeyboardButton(text="Previous", callback_data="lovelyx_helpc"),
+                 InlineKeyboardButton(text="Next", callback_data="lovelyx_helpe")]
                 ]
             ),
         )
@@ -753,7 +752,7 @@ Again thanks for using me
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Help", callback_data="lovelyx_")],
-                [InlineKeyboardButton(text="back", callback_data="lovelyx_helpd"),
+                [InlineKeyboardButton(text="Back", callback_data="lovelyx_helpd"),
                 InlineKeyboardButton(text="Main menu", callback_data="lovelyx_tutorials")]]
             ),
     
