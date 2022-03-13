@@ -137,11 +137,3 @@ async def drawText(image_path, text):
     webp_file = os.path.join(image_name)
     img.save(webp_file, "webp")
     return webp_file
-
-__help__ = """
-❂ /mmf <reply with text>*:* To draw a text for sticker or pohots
-"""
-
-__mod_name__ = "Memify"
-
-__lovely_tools = __help__
